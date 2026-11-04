@@ -1,4 +1,6 @@
+import { AboutIntro } from "./_components/AboutIntro";
 import { Hero } from "./_components/Hero";
+import { ServicesSection } from "./_components/ServicesSection";
 import { TrustStrip } from "./_components/TrustStrip";
 
 // Section order (Concept B): Hero → Trust strip → About → Services →
@@ -8,6 +10,8 @@ export default function Home() {
     <>
       <Hero />
       <TrustStrip />
+      <AboutIntro />
+      <ServicesSection />
     </>
   );
 }

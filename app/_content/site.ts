@@ -22,6 +22,9 @@ export type Service = {
   slug: string;
   name: string;
   href: string;
+  imageLabel: string;
+  whoFor: Copy;
+  whatToExpect: Copy;
 };
 
 export const site = {
@@ -37,16 +40,25 @@ export const services: readonly Service[] = [
     slug: "hormone-therapy",
     name: "Hormone & Testosterone Therapy",
     href: "/services#hormone-therapy",
+    imageLabel: "hormone therapy consultation",
+    whoFor: confirm("who hormone and testosterone therapy may be for"),
+    whatToExpect: confirm("evaluation, lab work, and treatment process"),
   },
   {
     slug: "aesthetic-injectables",
     name: "Botox & Aesthetic Injectables",
     href: "/services#aesthetic-injectables",
+    imageLabel: "aesthetic treatment room",
+    whoFor: confirm("who Botox and injectables may be for"),
+    whatToExpect: confirm("treatment appointment and aftercare"),
   },
   {
     slug: "medical-weight-loss",
     name: "Medical Weight Loss",
     href: "/services#medical-weight-loss",
+    imageLabel: "wellness and nutrition",
+    whoFor: confirm("who the weight loss program may be for"),
+    whatToExpect: confirm("program structure, medication, and check-ins"),
   },
 ];
 
@@ -82,3 +94,20 @@ export const hero = {
  */
 export type TrustItem = { label: string };
 export const trustItems: readonly TrustItem[] = [];
+
+// Homepage About intro. The Cana origin story belongs on /about only.
+export const aboutIntro = {
+  heading: "One provider at every visit.",
+  body: "CANA is built around a single provider. The person you meet at your first consultation is the person you'll see at every appointment after it, so you never start over with someone new.",
+  providerLabel: "Your provider",
+  provider: confirm("provider name, credentials, and licensure"),
+  link: { label: "Learn more about CANA", href: "/about" },
+} as const;
+
+export const servicesSection = {
+  heading: "Services",
+  intro: "Three areas of care, one provider.",
+  whoForLabel: "Who it may be for",
+  whatToExpectLabel: "What to expect",
+  linkPrefix: "Learn about",
+} as const;
