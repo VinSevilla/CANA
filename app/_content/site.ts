@@ -4,7 +4,17 @@
  * describes content. Never add unconfirmed facts — use CONFIRM instead.
  */
 
-export const CONFIRM = "[CONFIRM WITH CANA]";
+export const CONFIRM_LABEL = "CONFIRM WITH CANA";
+
+/**
+ * A piece of copy is either confirmed text, or a placeholder describing
+ * what CANA still needs to confirm. Placeholders render visibly via
+ * <CopyText>. Before launch, searching this file for `confirm(` must
+ * return nothing.
+ */
+export type Placeholder = { readonly confirm: string };
+export type Copy = string | Placeholder;
+export const confirm = (detail: string): Placeholder => ({ confirm: detail });
 
 export type NavLink = { label: string; href: string };
 
