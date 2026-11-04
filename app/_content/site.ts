@@ -73,6 +73,28 @@ export const book: NavLink = { label: "Book Consultation", href: "/book" };
 
 export const skipLinkLabel = "Skip to main content";
 
+export const footer = {
+  servicesHeading: "Services",
+  clinicHeading: "Clinic",
+  clinicLinks: [nav.home, nav.about, nav.contact] as readonly NavLink[],
+  contactHeading: "Contact",
+  contact: [
+    { label: "Address", value: confirm("clinic address") },
+    { label: "Phone", value: confirm("phone number") },
+    { label: "Email", value: confirm("email address") },
+    { label: "Hours", value: confirm("hours of operation") },
+  ],
+  legal: [
+    confirm("privacy policy and notice of privacy practices"),
+    confirm("terms of use"),
+  ],
+  disclaimer: confirm("medical disclaimer"),
+  // Stored, not computed: with cacheComponents, `new Date()` during
+  // prerendering fails the build. Update yearly (or automate later).
+  copyrightYear: 2026,
+  copyrightHolder: confirm("legal business name"),
+} as const;
+
 // --- Prototype-only copy (remove before production) ---------------------
 
 export const stubNote =
