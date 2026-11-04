@@ -30,7 +30,7 @@ function Item({
       href={link.href}
       onClick={onSelect}
       aria-current={pathname === link.href ? "page" : undefined}
-      className={`flex min-h-11 items-center rounded-lg px-4 decoration-2 underline-offset-4 hover:bg-sage/15 aria-[current=page]:text-deep-sage aria-[current=page]:underline ${
+      className={`flex min-h-11 items-center rounded-lg px-4 decoration-2 underline-offset-4 hover:underline aria-[current=page]:text-deep-sage aria-[current=page]:underline ${
         nested ? "text-base text-charcoal" : "text-lg font-medium text-espresso"
       }`}
     >

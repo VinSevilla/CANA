@@ -61,7 +61,7 @@ export function ServicesMenu() {
               href={nav.services.href}
               onClick={close}
               aria-current={pathname === nav.services.href ? "page" : undefined}
-              className="flex min-h-11 items-center rounded-lg px-4 py-2 text-base font-medium text-deep-sage hover:bg-sage/15"
+              className="flex min-h-11 items-center rounded-lg px-4 py-2 text-base font-medium text-deep-sage decoration-2 underline-offset-4 hover:underline"
             >
               {nav.services.allLabel}
             </Link>
