@@ -1,26 +1,45 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * CANA design tokens.
+ *
+ * `--color-*: initial` removes Tailwind's default palette (zinc, blue, …)
+ * so only brand colors can be used. A class like `bg-zinc-500` simply
+ * won't exist, which keeps the site on-brand by construction.
+ */
+@theme {
+  --color-*: initial;
+
+  --color-espresso: #3b2a1f; /* headings, dark panels */
+  --color-charcoal: #2f2f2f; /* body text */
+  --color-ivory: #f7f3ea; /* page background, text on dark */
+  --color-deep-sage: #62725a; /* links, buttons, small text (4.65:1 on ivory) */
+  --color-sage: #7a8f70; /* DECORATIVE ONLY: rules, icons, fills (3.17:1 on ivory) */
 }
 
+/*
+ * `inline` makes utilities use the font variables directly. Needed
+ * because --font-inter / --font-cormorant are set by next/font on <html>.
+ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-ivory font-sans text-base text-charcoal antialiased lg:text-lg;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Serif is reserved for H1 and H2 (AGENTS.md). */
+  h1,
+  h2 {
+    @apply font-serif font-medium text-espresso;
+  }
+
+  /* One consistent, high-contrast focus ring (Deep Sage: 4.65:1 on ivory). */
+  :focus-visible {
+    outline: 2px solid var(--color-deep-sage);
+    outline-offset: 3px;
+  }
 }
