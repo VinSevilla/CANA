@@ -42,4 +42,9 @@
     outline: 2px solid var(--color-deep-sage);
     outline-offset: 3px;
   }
+
+  /* On dark sections Deep Sage is only 2.65:1; ivory is 12.3:1. */
+  .on-dark :focus-visible {
+    outline-color: var(--color-ivory);
+  }
 }

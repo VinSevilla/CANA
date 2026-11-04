@@ -111,3 +111,28 @@ export const servicesSection = {
   whatToExpectLabel: "What to expect",
   linkPrefix: "Learn about",
 } as const;
+
+// Step titles describe the general flow; details stay unconfirmed.
+export const howItWorks = {
+  heading: "How it works",
+  steps: [
+    {
+      title: "Consultation",
+      body: confirm("what happens at the first consultation"),
+    },
+    {
+      title: "Your treatment plan",
+      body: confirm("how treatment plans are created"),
+    },
+    {
+      title: "Follow-up with the same provider",
+      body: confirm("follow-up schedule and format"),
+    },
+  ],
+} as const;
+
+export const consultation = {
+  heading: "Start with a consultation.",
+  body: "Talk through your goals with CANA's provider and find out which care may be right for you.",
+  details: confirm("consultation format, length, and fee"),
+} as const;

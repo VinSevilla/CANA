@@ -1,5 +1,7 @@
 import { AboutIntro } from "./_components/AboutIntro";
+import { ConsultationPanel } from "./_components/ConsultationPanel";
 import { Hero } from "./_components/Hero";
+import { HowItWorks } from "./_components/HowItWorks";
 import { ServicesSection } from "./_components/ServicesSection";
 import { TrustStrip } from "./_components/TrustStrip";
 
@@ -12,6 +14,8 @@ export default function Home() {
       <TrustStrip />
       <AboutIntro />
       <ServicesSection />
+      <HowItWorks />
+      <ConsultationPanel />
     </>
   );
 }
