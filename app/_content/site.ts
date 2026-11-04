@@ -1,7 +1,7 @@
 /**
  * All site copy lives here (AGENTS.md: "All site copy lives in
  * app/_content/site.ts"). Components describe structure; this file
- * describes content. Never add unconfirmed facts — use CONFIRM instead.
+ * describes content. Never add unconfirmed facts — use confirm() instead.
  */
 
 export const CONFIRM_LABEL = "CONFIRM WITH CANA";
@@ -66,8 +66,19 @@ export const skipLinkLabel = "Skip to main content";
 export const stubNote =
   "Prototype stub. Content for this page comes in a later checkpoint.";
 
-export const homeInProgress = {
-  heading: "Homepage in progress",
-  sectionHeading: "Checkpoint 2",
-  body: "This build checks design tokens, fonts, the header, and the Services menu. Homepage sections arrive in checkpoint 3.",
+// --- Homepage ------------------------------------------------------------
+
+export const hero = {
+  eyebrow: "Hormone Therapy · Aesthetics · Weight Loss",
+  heading: "Medical wellness, thoughtfully restored.",
+  body: "Hormone and testosterone therapy, Botox and aesthetic injectables, and medical weight loss, with one provider guiding your care from your first consultation onward.",
+  cta: { label: "Explore services", href: "#services" },
+  imageLabel: "calm clinic interior or provider consultation",
 } as const;
+
+/**
+ * Trust/credential items. ONLY add items CANA has confirmed (AGENTS.md).
+ * While this list is empty, the trust strip is not rendered at all.
+ */
+export type TrustItem = { label: string };
+export const trustItems: readonly TrustItem[] = [];
