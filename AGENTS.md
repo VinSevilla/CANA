@@ -55,3 +55,5 @@ These rules apply to all code, copy, and design work in this repository.
 - Substantial changes need an approved plan; small, obvious fixes don't.
 - Before release, manually review all copy for plural-provider
   language, and confirm no `[CONFIRM WITH CANA]` placeholders remain.
+- Before release, remove the prototype-only "Photo: …" labels from
+  `ImagePlaceholder` (they are 12px and exist only for review).

@@ -44,3 +44,7 @@ next-env.d.ts
 # The GitHub repo is public, so committing them would publish them.
 # Delete these lines once the photos are licensed or replaced.
 /public/images/services/
+
+# Hero photo: local review only. The current placeholder image shows
+# another clinic's branding and is unlicensed; never commit it.
+/public/images/hero.jpg

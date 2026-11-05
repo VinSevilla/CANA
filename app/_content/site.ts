@@ -19,18 +19,18 @@ export const confirm = (detail: string): Placeholder => ({ confirm: detail });
 export type NavLink = { label: string; href: string };
 
 /**
- * Service photo. `src` is a path under /public. Photos are not in git
- * yet (licensing), so cards fall back to a placeholder showing
+ * A photo slot. `src` is a path under /public. Photos are not in git yet
+ * (licensing), so <PhotoOrPlaceholder> shows a placeholder with
  * `placeholderLabel` when the file is missing at build time.
- * Photos are decorative (alt=""): the card title names the service.
+ * Photos are decorative (alt=""): nearby headings carry the meaning.
  */
-export type ServiceImage = { src: string; placeholderLabel: string };
+export type PhotoSource = { src: string; placeholderLabel: string };
 
 export type Service = {
   slug: string;
   name: string;
   href: string;
-  image: ServiceImage;
+  image: PhotoSource;
   /**
    * Homepage card text: the verbatim first sentence of `whoFor`.
    * Excerpt only, never new wording. Full copy appears on /services.
@@ -146,7 +146,11 @@ export const hero = {
   heading: "Medical wellness, thoughtfully restored.",
   body: "Hormone and testosterone therapy, Botox and aesthetic injectables, and medical weight loss, with one provider guiding your care from your first consultation onward.",
   cta: { label: "Explore services", href: "#services" },
-  imageLabel: "calm clinic interior or provider consultation",
+  // No hero photo exists yet; shows the placeholder until one is added.
+  image: {
+    src: "/images/hero.jpg",
+    placeholderLabel: "calm clinic interior or provider consultation",
+  } satisfies PhotoSource,
 } as const;
 
 /**
@@ -156,13 +160,21 @@ export const hero = {
 export type TrustItem = { label: string };
 export const trustItems: readonly TrustItem[] = [];
 
-// Homepage About intro. The Cana origin story belongs on /about only.
+// Homepage provider band. The Cana origin story belongs on /about only.
+// heading/body: confirmed by CANA (verbatim). Provider details below are
+// still unconfirmed.
 export const aboutIntro = {
-  heading: "One provider at every visit.",
-  body: "CANA is built around a single provider. The person you meet at your first consultation is the person you'll see at every appointment after it, so you never start over with someone new.",
+  heading: "Care that feels personal.",
+  body: "At CANA, you'll see the same provider at every visit. She gets to know you, your history, and what matters to you, so each appointment feels less like a checkup and more like catching up with someone who's genuinely in your corner.",
   providerLabel: "Your provider",
   provider: confirm("provider name, credentials, and licensure"),
   link: { label: "Learn more about CANA", href: "/about" },
+  // Must be a photo of CANA's actual provider (never stock). Placeholder
+  // until one is supplied.
+  portrait: {
+    src: "/images/provider/portrait.jpg",
+    placeholderLabel: "portrait of CANA's provider",
+  } satisfies PhotoSource,
 } as const;
 
 export const servicesSection = {
@@ -173,8 +185,8 @@ export const servicesSection = {
   linkPrefix: "Learn about",
 } as const;
 
-// How It Works: titles and leads verbatim from CANA; bodies shortened by
-// deleting words only (Option A). PENDING CANA CONFIRMATION.
+// How It Works: titles and leads verbatim from CANA; bodies are the
+// shortened Option A versions, confirmed by CANA.
 export const howItWorks = {
   heading: "How It Works",
   steps: [
