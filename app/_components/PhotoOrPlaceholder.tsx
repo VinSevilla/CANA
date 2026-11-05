@@ -19,17 +19,28 @@ export function PhotoOrPlaceholder({
   sizes,
   className = "",
   preload = false,
+  rounded = true,
 }: {
   photo: PhotoSource;
   sizes: string;
   className?: string;
   preload?: boolean;
+  /** false when a parent card already clips the corners. */
+  rounded?: boolean;
 }) {
   if (!publicFileExists(photo.src)) {
-    return <ImagePlaceholder label={photo.placeholderLabel} className={className} />;
+    return (
+      <ImagePlaceholder
+        label={photo.placeholderLabel}
+        className={className}
+        rounded={rounded}
+      />
+    );
   }
   return (
-    <div className={`relative overflow-hidden rounded-2xl bg-sage/25 ${className}`}>
+    <div
+      className={`relative overflow-hidden bg-sage/25 ${rounded ? "rounded-2xl" : ""} ${className}`}
+    >
       <Image
         src={photo.src}
         alt=""

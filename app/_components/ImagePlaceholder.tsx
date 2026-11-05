@@ -11,15 +11,18 @@
 export function ImagePlaceholder({
   label,
   className = "",
+  rounded = true,
 }: {
   label: string;
   className?: string;
+  /** false when a parent card already clips the corners. */
+  rounded?: boolean;
 }) {
   return (
     <div
       role="img"
       aria-label={`Image placeholder: ${label}`}
-      className={`relative overflow-hidden rounded-2xl bg-sage/25 ${className}`}
+      className={`relative overflow-hidden bg-sage/25 ${rounded ? "rounded-2xl" : ""} ${className}`}
     >
       <span
         aria-hidden="true"
