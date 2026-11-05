@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
-import { StubPage } from "../_components/StubPage";
-import { nav } from "../_content/site";
+import { contactPage, nav } from "../_content/site";
+import { ContactIntro } from "./_components/ContactIntro";
 
-export const metadata: Metadata = { title: nav.contact.label };
+export const metadata: Metadata = {
+  title: nav.contact.label,
+  description: contactPage.metaDescription,
+};
 
+// Section order: Intro + details (Ivory) → Before you reach out (Sage tint)
+// → Consultation (Espresso).
 export default function ContactPage() {
-  return <StubPage title={nav.contact.label} />;
+  return (
+    <>
+      <ContactIntro />
+    </>
+  );
 }

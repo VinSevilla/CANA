@@ -292,3 +292,23 @@ export const aboutPage = {
     attribution: confirm("her name"),
   },
 } as const;
+
+// --- Contact page ----------------------------------------------------------
+// All wording below was drafted for the prototype: PENDING CANA CONFIRMATION.
+// Contact details themselves come from contactDetails (single source).
+// No availability, response times, walk-ins, telehealth, or parking info.
+export const contactPage = {
+  metaDescription:
+    "How to reach CANA Health & Wellness and take the first step toward a consultation.",
+  eyebrow: "Contact",
+  heading: "Let's start with a conversation.",
+  intro:
+    "Have a question about a service, or ready to talk about a consultation? Here's how to reach CANA.",
+  detailsHeading: "How to reach CANA",
+  // Order on this page: the confirmed, actionable detail first.
+  detailOrder: ["Phone", "Email", "Address", "Hours"],
+  // Screen-reader prefix for tel: links ("Call (619) 512-7491").
+  callPrefix: "Call",
+  booking: { label: "Booking", value: confirm("how to book a consultation") },
+} as const;
+
