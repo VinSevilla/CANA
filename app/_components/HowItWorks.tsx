@@ -4,9 +4,9 @@ import { CopyText } from "./CopyText";
 
 /**
  * Compact How It Works (Ivory): a numbered typographic list, not a card
- * grid. Desktop: heading left (4 cols), list right (8 cols); each row is
- * number | title + lead | body, separated by fine Sage rules. Phones: a
- * stacked list. All copy is CANA-approved.
+ * grid. Desktop: heading left (4 cols), list right (8 cols), the heading
+ * aligned with the first step; each row is the number beside one text
+ * column (title, lead, body), separated by fine Sage rules. Phones: stacked. All copy is CANA-approved.
  *
  * The <ol> carries the sequence; the "01" numbers are visual only
  * (aria-hidden) so steps aren't announced twice. Numbers are 14px Deep Sage
@@ -24,7 +24,7 @@ export function HowItWorks() {
             {howItWorks.steps.map((step, index) => (
               <li
                 key={step.title}
-                className="grid gap-x-6 gap-y-3 py-7 first:pt-0 last:pb-0 sm:grid-cols-[2.5rem_minmax(0,1fr)] lg:grid-cols-[2.5rem_minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-x-10"
+                className="grid gap-x-6 gap-y-2 py-7 first:pt-0 last:pb-0 sm:grid-cols-[2.5rem_minmax(0,1fr)] lg:gap-x-8"
               >
                 <span
                   aria-hidden="true"
@@ -32,15 +32,16 @@ export function HowItWorks() {
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <div>
+                {/* One text column: title, lead, then body. */}
+                <div className="max-w-[60ch]">
                   <h3 className="text-lg font-semibold text-balance text-espresso lg:text-xl">
                     {step.title}
                   </h3>
                   <p className="mt-1 font-medium text-espresso">{step.lead}</p>
+                  <p className="mt-3">
+                    <CopyText value={step.body} />
+                  </p>
                 </div>
-                <p className="sm:col-start-2 lg:col-start-auto">
-                  <CopyText value={step.body} />
-                </p>
               </li>
             ))}
           </ol>
