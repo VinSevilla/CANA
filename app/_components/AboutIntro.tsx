@@ -6,8 +6,9 @@ import { PhotoOrPlaceholder } from "./PhotoOrPlaceholder";
 
 /**
  * Provider feature: the homepage's personal centerpiece (Ivory). Built like
- * a print profile, not a card: an offset 4:5 portrait with a still Sage
- * block behind it (decorative only), a caption, a large serif statement set
+ * a print profile, not a card: a 4:5 portrait (max 380px wide on desktop,
+ * 75% on phones) with a full-Sage block offset 32-40px behind it
+ * (decorative only), a caption aligned to the portrait's edge, a large serif statement set
  * lower than the portrait, CANA's approved paragraph, and one About link.
  *
  * Text: Espresso/Charcoal on Ivory (12.34 / 12.09); link Deep Sage (4.65).
@@ -19,11 +20,14 @@ export function AboutIntro() {
     <section aria-labelledby="about-heading" className="pb-20 lg:pb-32">
       <Container>
         <div className="grid gap-14 border-t border-sage/30 pt-20 lg:grid-cols-12 lg:gap-16 lg:pt-28">
-          <figure className="w-4/5 max-w-sm lg:col-span-5 lg:w-full lg:max-w-none">
+          <figure className="w-3/4 lg:col-span-5 lg:w-full lg:max-w-[380px]">
             <div className="relative">
+              {/* Decorative block: same size as the portrait, offset 32px
+                  (40px on desktop) down and right, in full Sage so it reads
+                  as a deliberate shape, not a near-match shadow. */}
               <div
                 aria-hidden="true"
-                className="absolute -right-5 -bottom-5 left-8 top-8 bg-sage/30 sm:-right-7 sm:-bottom-7 sm:left-12 sm:top-12"
+                className="absolute inset-0 translate-x-8 translate-y-8 bg-sage lg:translate-x-10 lg:translate-y-10"
               />
               {/* Opaque ivory backing: the placeholder fill is translucent, so
                   without it the decorative block would show through. */}
@@ -31,13 +35,13 @@ export function AboutIntro() {
                 <PhotoOrPlaceholder
                   photo={aboutIntro.portrait}
                   alt={aboutPage.hero.portraitAlt}
-                  sizes="(min-width: 1024px) 420px, 80vw"
+                  sizes="(min-width: 1024px) 380px, 75vw"
                   rounded={false}
                   className="aspect-[4/5]"
                 />
               </div>
             </div>
-            <figcaption className="mt-12">
+            <figcaption className="mt-14 lg:mt-16">
               <span className="block font-medium text-espresso">
                 <CopyText value={aboutIntro.provider} />
               </span>
