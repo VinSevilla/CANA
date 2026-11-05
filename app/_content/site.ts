@@ -258,17 +258,12 @@ export const aboutPage = {
     portraitAlt: "Portrait of CANA's nurse practitioner",
   },
   approach: {
-    label: "The CANA approach",
     heading: "If you don't need a treatment, she won't recommend it.",
     body: "Every visit starts with an honest conversation about your health, your goals, and your options. When a treatment makes sense, she'll explain why. When it doesn't, she'll tell you that too.",
   },
   principles: {
     heading: "What honest care looks like",
     items: [
-      {
-        title: "Only what you need",
-        body: "Recommendations are based on your health and goals. She won't recommend or prescribe treatment you don't need.",
-      },
       {
         title: "Straight answers",
         body: "You'll hear the potential benefits, the risks, and what to realistically expect before you decide anything.",
