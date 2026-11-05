@@ -18,7 +18,8 @@ export function HowItWorks() {
         <h2 id="how-heading" className="text-4xl lg:text-5xl">
           {howItWorks.heading}
         </h2>
-        <ol className="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
+        {/* One column until lg: three columns at 768px were too narrow. */}
+        <ol className="mt-14 grid gap-12 lg:grid-cols-3 lg:gap-10">
           {howItWorks.steps.map((step, index) => (
             <li key={step.title} className="border-t border-sage pt-6">
               <span

@@ -172,24 +172,25 @@ export const servicesSection = {
   linkPrefix: "Learn about",
 } as const;
 
-// How It Works copy as provided by CANA (verbatim).
+// How It Works: titles and leads verbatim from CANA; bodies shortened by
+// deleting words only (Option A). PENDING CANA CONFIRMATION.
 export const howItWorks = {
   heading: "How It Works",
   steps: [
     {
       title: "Consultation",
       lead: "Your wellness journey begins with a conversation.",
-      body: "During your initial consultation, your provider will take time to understand your health concerns, medical history, and personal goals. Together, you'll discuss available treatment options, address questions, and determine whether further evaluation or testing may be appropriate.",
+      body: "Your provider will take time to understand your health concerns, medical history, and personal goals.",
     },
     {
       title: "Your Personalized Treatment Plan",
       lead: "Care designed around your individual needs.",
-      body: "Based on your consultation, clinical evaluation, and any necessary testing, your provider will help determine an appropriate course of care. If treatment is recommended, your plan will reflect your individual health needs, preferences, and goals, with an emphasis on safety, informed decisions, and realistic expectations.",
+      body: "If treatment is recommended, your plan will reflect your individual health needs, preferences, and goals.",
     },
     {
       title: "Ongoing Care & Follow-Up",
       lead: "Personalized support beyond your first visit.",
-      body: "Your care doesn't necessarily end after your initial treatment. Follow-up visits, when appropriate, allow your provider to evaluate your progress, address concerns, and make adjustments to your treatment plan as needed. Our goal is to support continuity of care and help you make informed decisions throughout your wellness journey.",
+      body: "Follow-up visits, when appropriate, allow your provider to evaluate your progress and make adjustments as needed.",
     },
   ],
 } as const;
