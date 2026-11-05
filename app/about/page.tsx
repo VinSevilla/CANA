@@ -12,15 +12,16 @@ export const metadata: Metadata = {
   description: aboutPage.metaDescription,
 };
 
-// Section order: Hero (Ivory) → Approach (Espresso) → Principles (Ivory) →
-// Background (Sage tint) → Why CANA (Ivory) → Consultation (Espresso).
+// A profile, read top to bottom: who she is (opening) → her background →
+// what she believes (statement) → what that means for you (principles) →
+// why CANA exists (origin) → the consultation panel (the only dark section).
 export default function AboutPage() {
   return (
     <>
       <AboutHero />
+      <Background />
       <ApproachBand />
       <Principles />
-      <Background />
       <OriginStory />
       {/* Shared with the homepage; the page's second Book button. */}
       <ConsultationPanel />
