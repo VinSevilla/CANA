@@ -141,7 +141,8 @@ export const stubNote =
 // --- Homepage ------------------------------------------------------------
 
 export const hero = {
-  eyebrow: "Hormone Therapy · Aesthetics · Weight Loss",
+  // Rendered as a wrapping list; each item stays on one line.
+  eyebrowItems: ["Hormone Therapy", "Aesthetics", "Weight Loss"],
   heading: "Medical wellness, thoughtfully restored.",
   body: "Hormone and testosterone therapy, Botox and aesthetic injectables, and medical weight loss, with one provider guiding your care from your first consultation onward.",
   cta: { label: "Explore services", href: "#services" },
