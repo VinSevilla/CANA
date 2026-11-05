@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { hero } from "../_content/site";
 import { Container } from "./Container";
-import { ImagePlaceholder } from "./ImagePlaceholder";
+import { PhotoOrPlaceholder } from "./PhotoOrPlaceholder";
 
 /**
  * Split hero. No Book button here: the header's Book button is already in
@@ -10,12 +10,16 @@ import { ImagePlaceholder } from "./ImagePlaceholder";
  *
  * On phones the text comes first (it's the page's main message and loads
  * instantly); the image follows.
+ *
+ * Image weight: at xl (1280px+) the hero alone widens to 80rem and splits
+ * 6/6, so the image grows (~576x720) without squeezing the H1 onto a 4th
+ * line. Between lg and xl a 6/6 split forces 4 lines, so it stays 7/5.
  */
 export function Hero() {
   return (
-    <section aria-labelledby="hero-heading" className="py-16 lg:py-28">
-      <Container className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-7">
+    <section aria-labelledby="hero-heading" className="py-16 lg:py-12">
+      <Container className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16 xl:max-w-[80rem]">
+        <div className="lg:col-span-7 xl:col-span-6">
           {/* Wraps between items, never inside one. Spacing separates the
               items instead of "·" characters, which can end up dangling
               at a line break. role="list" restores list semantics that
@@ -46,9 +50,11 @@ export function Hero() {
             {hero.cta.label}
           </Link>
         </div>
-        <ImagePlaceholder
-          label={hero.imageLabel}
-          className="aspect-[4/3] lg:col-span-5 lg:aspect-[4/5]"
+        <PhotoOrPlaceholder
+          photo={hero.image}
+          sizes="(min-width: 1280px) 576px, (min-width: 1024px) 420px, 100vw"
+          preload
+          className="aspect-[4/3] lg:col-span-5 lg:aspect-[4/5] xl:col-span-6"
         />
       </Container>
     </section>

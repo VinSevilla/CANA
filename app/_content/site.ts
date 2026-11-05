@@ -19,18 +19,18 @@ export const confirm = (detail: string): Placeholder => ({ confirm: detail });
 export type NavLink = { label: string; href: string };
 
 /**
- * Service photo. `src` is a path under /public. Photos are not in git
- * yet (licensing), so cards fall back to a placeholder showing
+ * A photo slot. `src` is a path under /public. Photos are not in git yet
+ * (licensing), so <PhotoOrPlaceholder> shows a placeholder with
  * `placeholderLabel` when the file is missing at build time.
- * Photos are decorative (alt=""): the card title names the service.
+ * Photos are decorative (alt=""): nearby headings carry the meaning.
  */
-export type ServiceImage = { src: string; placeholderLabel: string };
+export type PhotoSource = { src: string; placeholderLabel: string };
 
 export type Service = {
   slug: string;
   name: string;
   href: string;
-  image: ServiceImage;
+  image: PhotoSource;
   /**
    * Homepage card text: the verbatim first sentence of `whoFor`.
    * Excerpt only, never new wording. Full copy appears on /services.
@@ -146,7 +146,11 @@ export const hero = {
   heading: "Medical wellness, thoughtfully restored.",
   body: "Hormone and testosterone therapy, Botox and aesthetic injectables, and medical weight loss, with one provider guiding your care from your first consultation onward.",
   cta: { label: "Explore services", href: "#services" },
-  imageLabel: "calm clinic interior or provider consultation",
+  // No hero photo exists yet; shows the placeholder until one is added.
+  image: {
+    src: "/images/hero.jpg",
+    placeholderLabel: "calm clinic interior or provider consultation",
+  } satisfies PhotoSource,
 } as const;
 
 /**

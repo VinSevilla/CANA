@@ -1,33 +1,16 @@
-import Image from "next/image";
 import Link from "next/link";
 import { services, servicesSection, type Service } from "../_content/site";
 import { Container } from "./Container";
-import { ImagePlaceholder } from "./ImagePlaceholder";
-import { publicFileExists } from "./publicFileExists";
+import { PhotoOrPlaceholder } from "./PhotoOrPlaceholder";
 
 function ServiceCard({ service }: { service: Service }) {
   return (
     <article className="flex flex-col">
-      {publicFileExists(service.image.src) ? (
-        // The wrapper fixes the 4:3 box (no layout shift); `fill` +
-        // object-cover crops any photo shape into it. `sizes` tells the
-        // browser the rendered width so it downloads a right-sized file.
-        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-sage/25">
-          <Image
-            src={service.image.src}
-            alt=""
-            fill
-            sizes="(min-width: 1024px) 340px, (min-width: 768px) 50vw, 100vw"
-            className="object-cover"
-          />
-        </div>
-      ) : (
-        // Same 4:3 box, so swapping in the photo later doesn't move anything.
-        <ImagePlaceholder
-          label={service.image.placeholderLabel}
-          className="aspect-[4/3]"
-        />
-      )}
+      <PhotoOrPlaceholder
+        photo={service.image}
+        sizes="(min-width: 1024px) 340px, (min-width: 768px) 50vw, 100vw"
+        className="aspect-[4/3]"
+      />
       {/* H3: card titles use Inter (serif is reserved for H1/H2). */}
       <h3 className="mt-6 text-xl font-semibold text-espresso lg:text-2xl">
         {service.name}
