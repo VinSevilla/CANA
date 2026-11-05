@@ -24,6 +24,11 @@ export type Service = {
   href: string;
   /** Path under /public. Decorative (alt=""): the card title names the service. */
   image: string;
+  /**
+   * Homepage card text: the verbatim first sentence of `whoFor`.
+   * Excerpt only, never new wording. Full copy appears on /services.
+   */
+  summary: string;
   whoFor: Copy;
   whatToExpect: Copy;
 };
@@ -42,6 +47,8 @@ export const services: readonly Service[] = [
     name: "Hormone & Testosterone Therapy",
     href: "/services#hormone-therapy",
     image: "/images/services/hormone-therapy.webp",
+    summary:
+      "Hormone and testosterone therapy may be appropriate for individuals experiencing symptoms such as persistent fatigue, reduced energy, low libido, changes in mood, or decreased muscle strength.",
     whoFor:
       "Hormone and testosterone therapy may be appropriate for individuals experiencing symptoms such as persistent fatigue, reduced energy, low libido, changes in mood, or decreased muscle strength. For those concerned about hormonal imbalances or age-related changes, a personalized medical evaluation can help determine whether treatment may be beneficial.",
     whatToExpect:
@@ -52,6 +59,8 @@ export const services: readonly Service[] = [
     name: "Botox & Aesthetic Injectables",
     href: "/services#aesthetic-injectables",
     image: "/images/services/aesthetic-injectables.jpg",
+    summary:
+      "Botox and aesthetic injectables may be suitable for individuals looking to soften the appearance of fine lines and wrinkles, address specific cosmetic concerns, or maintain a refreshed, natural-looking appearance.",
     whoFor:
       "Botox and aesthetic injectables may be suitable for individuals looking to soften the appearance of fine lines and wrinkles, address specific cosmetic concerns, or maintain a refreshed, natural-looking appearance. Whether exploring aesthetic treatments for the first time or maintaining previous results, the goal is to support your personal preferences and confidence.",
     whatToExpect:
@@ -62,6 +71,8 @@ export const services: readonly Service[] = [
     name: "Medical Weight Loss",
     href: "/services#medical-weight-loss",
     image: "/images/services/medical-weight-loss.avif",
+    summary:
+      "Medical weight loss may be appropriate for individuals who have struggled to achieve or maintain their weight-management goals through traditional approaches alone.",
     whoFor:
       "Medical weight loss may be appropriate for individuals who have struggled to achieve or maintain their weight-management goals through traditional approaches alone. It may also benefit those seeking a more structured, personalized strategy that considers their overall health, lifestyle, and individual needs.",
     whatToExpect:

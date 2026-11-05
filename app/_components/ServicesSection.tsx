@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { services, servicesSection, type Service } from "../_content/site";
 import { Container } from "./Container";
-import { CopyText } from "./CopyText";
 
 function ServiceCard({ service }: { service: Service }) {
   return (
@@ -23,22 +22,9 @@ function ServiceCard({ service }: { service: Service }) {
       <h3 className="mt-6 text-xl font-semibold text-espresso lg:text-2xl">
         {service.name}
       </h3>
-      <dl className="mt-4 space-y-4 text-base">
-        <div>
-          <dt className="font-medium text-espresso">{servicesSection.whoForLabel}</dt>
-          <dd className="mt-1">
-            <CopyText value={service.whoFor} />
-          </dd>
-        </div>
-        <div>
-          <dt className="font-medium text-espresso">
-            {servicesSection.whatToExpectLabel}
-          </dt>
-          <dd className="mt-1">
-            <CopyText value={service.whatToExpect} />
-          </dd>
-        </div>
-      </dl>
+      {/* Short summary only; the full "Who it may be for" / "What to
+          expect" copy lives on /services (the link below). */}
+      <p className="mt-4 text-base">{service.summary}</p>
       {/* Link text names the service ("Learn about Medical Weight Loss"),
           so a screen-reader list of links isn't three identical "Learn more"s. */}
       <Link
