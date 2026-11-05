@@ -7,6 +7,9 @@
  *
  * Tailwind only generates classes it can see written out in full, which
  * is why callers pass complete class names rather than a ratio number.
+ *
+ * PROTOTYPE ONLY: the visible "Photo: …" label (12px) exists for review.
+ * Remove it before launch (see AGENTS.md, Process).
  */
 export function ImagePlaceholder({
   label,
