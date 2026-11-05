@@ -18,12 +18,19 @@ export const confirm = (detail: string): Placeholder => ({ confirm: detail });
 
 export type NavLink = { label: string; href: string };
 
+/**
+ * Service photo. `src` is a path under /public. Photos are not in git
+ * yet (licensing), so cards fall back to a placeholder showing
+ * `placeholderLabel` when the file is missing at build time.
+ * Photos are decorative (alt=""): the card title names the service.
+ */
+export type ServiceImage = { src: string; placeholderLabel: string };
+
 export type Service = {
   slug: string;
   name: string;
   href: string;
-  /** Path under /public. Decorative (alt=""): the card title names the service. */
-  image: string;
+  image: ServiceImage;
   /**
    * Homepage card text: the verbatim first sentence of `whoFor`.
    * Excerpt only, never new wording. Full copy appears on /services.
@@ -46,7 +53,10 @@ export const services: readonly Service[] = [
     slug: "hormone-therapy",
     name: "Hormone & Testosterone Therapy",
     href: "/services#hormone-therapy",
-    image: "/images/services/hormone-therapy.webp",
+    image: {
+      src: "/images/services/hormone-therapy.webp",
+      placeholderLabel: "hormone therapy consultation",
+    },
     summary:
       "Hormone and testosterone therapy may be appropriate for individuals experiencing symptoms such as persistent fatigue, reduced energy, low libido, changes in mood, or decreased muscle strength.",
     whoFor:
@@ -58,7 +68,10 @@ export const services: readonly Service[] = [
     slug: "aesthetic-injectables",
     name: "Botox & Aesthetic Injectables",
     href: "/services#aesthetic-injectables",
-    image: "/images/services/aesthetic-injectables.jpg",
+    image: {
+      src: "/images/services/aesthetic-injectables.jpg",
+      placeholderLabel: "aesthetic treatment room",
+    },
     summary:
       "Botox and aesthetic injectables may be suitable for individuals looking to soften the appearance of fine lines and wrinkles, address specific cosmetic concerns, or maintain a refreshed, natural-looking appearance.",
     whoFor:
@@ -70,7 +83,10 @@ export const services: readonly Service[] = [
     slug: "medical-weight-loss",
     name: "Medical Weight Loss",
     href: "/services#medical-weight-loss",
-    image: "/images/services/medical-weight-loss.avif",
+    image: {
+      src: "/images/services/medical-weight-loss.avif",
+      placeholderLabel: "wellness and nutrition",
+    },
     summary:
       "Medical weight loss may be appropriate for individuals who have struggled to achieve or maintain their weight-management goals through traditional approaches alone.",
     whoFor:
