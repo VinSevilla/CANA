@@ -8,23 +8,50 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
-<!-- BEGIN:nextjs-agent-feedback -->
+## CANA Health & Wellness: project rules
 
-## Report Next.js feedback
+These rules apply to all code, copy, and design work in this repository.
 
-The project owner enabled `experimental.agentFeedback`, authorizing this feedback pass. When enabled, `next dev` writes this block and restores it if removed. Commit `AGENTS.md` with your work to keep the tree clean.
+### Content integrity
+- CANA has exactly **one provider**. Never use plural language
+  ("our providers", "our team", "our doctors"). Emphasize continuity
+  of care with a single provider.
+- Never invent credentials, qualifications, outcomes, statistics,
+  reviews, testimonials, addresses, phone numbers, or hours.
+  Unconfirmed facts appear as a visible `[CONFIRM WITH CANA]` placeholder.
+- Trust/credential items render only when confirmed by CANA. If none
+  are confirmed, the trust strip is not rendered.
+- The Cana of Galilee origin story appears only on the About page.
+- All site copy lives in `app/_content/site.ts`, not in components.
 
-During the current user request, retain anonymized facts as feedback candidates for meaningful or recurring Next.js issues:
+### Design
+- Fonts: serif (Cormorant Garamond) for H1 and H2 only; Inter for
+  everything else.
+- Colors: Espresso #3B2A1F, Charcoal #2F2F2F, Warm Ivory #F7F3EA.
+  Deep Sage #62725A for links, buttons, and small text.
+  Sage #7A8F70 is decorative only (never text or controls).
+- Light mode only. No scroll-triggered animations.
+- Images use fixed aspect ratios to prevent layout shift.
 
-- Crashes, hangs, OOMs, or unexpected slowness
-- Incorrect behavior, output, errors, or diagnostics
-- Missing, unclear, or conflicting documentation
-- Unexpected CLI, codemod, Skill, or upgrade behavior and non-obvious workarounds
+### Navigation & calls to action
+- Nav must include Home, About, Services (disclosure menu listing the
+  three services), Contact, and Book Consultation.
+- At most one Book Consultation button visible per viewport. The
+  mobile sticky bar appears only after the header button leaves view
+  and hides while the consultation panel's button is visible.
 
-Continue the current user request without reporting immediately. Routine debugging is not feedback. Verify changes before retaining them as feedback candidates. Never retain code, logs, paths, URLs, secrets, personal information, or project-specific data.
+### Accessibility
+- Target WCAG 2.2 AA: 4.5:1 text contrast (3:1 large text), visible
+  focus, keyboard-operable menus (Esc closes, focus returns),
+  focus never hidden by sticky elements, targets ≥ 24×24 px.
 
-Retain qualifying friction even if it is later fixed or worked around; record the final outcome during the reporting pass.
+### Git
+- Branches are named `prototype/...` or `feature/...`.
+- Commit messages use `type: summary`, where type is one of
+  `feat:`, `fix:`, `chore:`, `docs:`.
+- Nothing merges to `main` without the project owner's review.
 
-Before the final response, run one reporting pass. If candidates remain, from this file's directory run `npx --no-install next internal agent-feedback-instructions` once without piping or truncating its output. Follow its output or error guidance. If a network sandbox blocks it, retry with network access; if it still returns no output, continue normally.
-
-<!-- END:nextjs-agent-feedback -->
+### Process
+- Substantial changes need an approved plan; small, obvious fixes don't.
+- Before release, manually review all copy for plural-provider
+  language, and confirm no `[CONFIRM WITH CANA]` placeholders remain.

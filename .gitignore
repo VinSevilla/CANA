@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Service photos: kept out of git until image licensing is confirmed.
+# The GitHub repo is public, so committing them would publish them.
+# Delete these lines once the photos are licensed or replaced.
+/public/images/services/
