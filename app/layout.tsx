@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { SiteFooter } from "./_components/SiteFooter";
 import { SiteHeader } from "./_components/SiteHeader";
+import { MAIN_ID } from "./_components/ids";
 import { site, skipLinkLabel } from "./_content/site";
 import "./globals.css";
 
@@ -40,14 +41,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-dvh flex-col">
         {/* First focusable element: lets keyboard users jump past the nav. */}
         <a
-          href="#main"
+          href={`#${MAIN_ID}`}
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-espresso focus:px-4 focus:py-3 focus:text-ivory"
         >
           {skipLinkLabel}
         </a>
         <SiteHeader />
         {/* tabIndex={-1} lets the skip link move focus here. */}
-        <main id="main" tabIndex={-1} className="flex-1 outline-none">
+        <main id={MAIN_ID} tabIndex={-1} className="flex-1 outline-none">
           {children}
         </main>
         <SiteFooter />
