@@ -49,10 +49,14 @@ function ServiceCard({ service }: { service: Service }) {
 export function ServicesSection() {
   return (
     // id="services" is the hero's "Explore services" target.
+    // Sage/10 tint (#eae9de) so the ivory cards read as surfaces. On the
+    // tint itself only Espresso (11.21) and Charcoal (10.98) text: Deep
+    // Sage drops to 4.23, so links stay inside the ivory cards (4.65).
+    // The cards' Deep Sage focus outline against the tint is 4.23 (3:1 needed).
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="border-t border-sage/30 py-20 lg:py-32"
+      className="bg-sage/10 py-20 lg:py-32"
     >
       <Container>
         <h2 id="services-heading" className="text-4xl lg:text-5xl">

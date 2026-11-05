@@ -6,14 +6,13 @@ import { CopyText } from "./CopyText";
  * An ordered list (<ol>) carries the sequence for screen readers; the big
  * numbers are visual only (aria-hidden) so steps aren't announced twice.
  *
- * Sage/10 background (#eae9de) gives the page rhythm. Contrast on it:
- * Espresso 11.21, Charcoal 10.98, Deep Sage 4.23 (below 4.5, so Deep
- * Sage here is only used at >= 24px, where WCAG requires 3:1). Keep
- * links and small Deep Sage text out of this section.
+ * Ivory background; its top edge is marked by the change from the
+ * Services tint above. Contrast: Espresso 12.34, Charcoal 12.09, Deep
+ * Sage step numbers (24px) 4.65.
  */
 export function HowItWorks() {
   return (
-    <section aria-labelledby="how-heading" className="bg-sage/10 py-20 lg:py-32">
+    <section aria-labelledby="how-heading" className="py-20 lg:py-32">
       <Container>
         <h2 id="how-heading" className="text-4xl lg:text-5xl">
           {howItWorks.heading}
