@@ -210,6 +210,8 @@ export const howItWorks = {
   ],
 } as const;
 
+// Consultation panel, shared by the homepage and the About page.
+// heading/body: drafted in the prototype, PENDING CANA CONFIRMATION.
 export const consultation = {
   heading: "Start with a consultation.",
   body: "Talk through your goals with CANA's provider and find out which care may be right for you.",
