@@ -2,11 +2,12 @@ import { consultation } from "../_content/site";
 import { BookButton } from "./BookButton";
 import { Container } from "./Container";
 import { CopyText } from "./CopyText";
+import { PANEL_BOOK_ID } from "./ids";
 
 /**
  * The page's closing call to action, on Espresso. `on-dark` switches the
  * focus ring to ivory (Deep Sage on Espresso is only 2.65:1; focus
- * indicators need 3:1). `id="panel-book"` lets the future mobile sticky
+ * indicators need 3:1). PANEL_BOOK_ID lets the mobile sticky
  * bar hide while this button is on screen.
  */
 export function ConsultationPanel() {
@@ -31,7 +32,7 @@ export function ConsultationPanel() {
           </p>
         </div>
         <div className="lg:col-span-4 lg:justify-self-end">
-          <BookButton id="panel-book" tone="onDark" />
+          <BookButton id={PANEL_BOOK_ID} tone="onDark" />
         </div>
       </Container>
     </section>

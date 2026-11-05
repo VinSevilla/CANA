@@ -3,15 +3,16 @@ import { site } from "../_content/site";
 import { BookButton } from "./BookButton";
 import { Container } from "./Container";
 import { DesktopNav } from "./DesktopNav";
+import { HEADER_BOOK_ID } from "./ids";
 import { MobileMenu } from "./MobileMenu";
 
 /**
  * Server Component: the static parts render as plain HTML; only the
  * interactive pieces (DesktopNav, MobileMenu) ship JavaScript.
  *
- * Not sticky (approved: desktop has no persistent Book button; mobile gets
- * a separate sticky bar in a later checkpoint). There is exactly ONE Book
- * button here at every screen size; `id="header-book"` lets the future
+ * Not sticky (approved: desktop has no persistent Book button; below `lg`
+ * StickyBookBar takes over once this button scrolls away). There is exactly ONE Book
+ * button here at every screen size; HEADER_BOOK_ID lets the
  * sticky bar detect when it scrolls out of view.
  */
 export function SiteHeader() {
@@ -34,7 +35,7 @@ export function SiteHeader() {
         <DesktopNav />
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <BookButton id="header-book" compact />
+          <BookButton id={HEADER_BOOK_ID} compact />
           <MobileMenu />
         </div>
       </Container>
