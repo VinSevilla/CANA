@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { aboutPage, nav } from "../_content/site";
 import { AboutHero } from "./_components/AboutHero";
+import { ApproachBand } from "./_components/ApproachBand";
+import { Principles } from "./_components/Principles";
 
 export const metadata: Metadata = {
   title: nav.about.label,
@@ -13,6 +15,8 @@ export default function AboutPage() {
   return (
     <>
       <AboutHero />
+      <ApproachBand />
+      <Principles />
     </>
   );
 }
