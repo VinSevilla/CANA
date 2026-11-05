@@ -310,5 +310,19 @@ export const contactPage = {
   // Screen-reader prefix for tel: links ("Call (619) 512-7491").
   callPrefix: "Call",
   booking: { label: "Booking", value: confirm("how to book a consultation") },
+  notesHeading: "Before you reach out",
+  // PENDING CANA APPROVAL. Makes no claim that any channel is secure or
+  // HIPAA-compliant.
+  privacy: {
+    title: "Keep health details for your consultation",
+    body: "Please don't include medical details, such as symptoms, medications, or health history, in emails or general inquiries. You can share them with your provider during your consultation.",
+  },
+  // PENDING CANA APPROVAL; confirm it suits CANA's location before launch.
+  // Says nothing about what care CANA does or doesn't offer. 911 stays plain
+  // text (no tel: link) to avoid accidental emergency calls.
+  emergency: {
+    title: "In an emergency",
+    body: "If you are experiencing a medical emergency, call 911 or go to the nearest emergency room.",
+  },
 } as const;
 
