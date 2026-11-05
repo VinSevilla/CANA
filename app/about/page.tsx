@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
-import { StubPage } from "../_components/StubPage";
-import { nav } from "../_content/site";
+import { aboutPage, nav } from "../_content/site";
+import { AboutHero } from "./_components/AboutHero";
 
-export const metadata: Metadata = { title: nav.about.label };
+export const metadata: Metadata = {
+  title: nav.about.label,
+  description: aboutPage.metaDescription,
+};
 
+// Section order: Hero (Ivory) → Approach (Espresso) → Principles (Ivory) →
+// Background (Sage tint) → Why CANA (Ivory) → Consultation (Espresso).
 export default function AboutPage() {
-  return <StubPage title={nav.about.label} />;
+  return (
+    <>
+      <AboutHero />
+    </>
+  );
 }

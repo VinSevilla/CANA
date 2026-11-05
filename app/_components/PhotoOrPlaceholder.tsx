@@ -13,6 +13,10 @@ import { publicFileExists } from "./publicFileExists";
  * grid placement. `sizes` should match the rendered width so next/image
  * serves a right-sized file. `preload` is for the above-the-fold hero
  * only (Next.js 16 replaced `priority` with `preload`).
+ *
+ * `alt` defaults to "" (decorative): most photos sit next to a heading
+ * that already says what they show. Pass real alt text when the photo
+ * itself carries meaning, e.g. the provider's portrait on the About page.
  */
 export function PhotoOrPlaceholder({
   photo,
@@ -20,6 +24,7 @@ export function PhotoOrPlaceholder({
   className = "",
   preload = false,
   rounded = true,
+  alt = "",
 }: {
   photo: PhotoSource;
   sizes: string;
@@ -27,6 +32,7 @@ export function PhotoOrPlaceholder({
   preload?: boolean;
   /** false when a parent card already clips the corners. */
   rounded?: boolean;
+  alt?: string;
 }) {
   if (!publicFileExists(photo.src)) {
     return (
@@ -43,7 +49,7 @@ export function PhotoOrPlaceholder({
     >
       <Image
         src={photo.src}
-        alt=""
+        alt={alt}
         fill
         sizes={sizes}
         preload={preload}
