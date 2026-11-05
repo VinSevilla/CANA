@@ -16,9 +16,20 @@ export function Hero() {
     <section aria-labelledby="hero-heading" className="py-16 lg:py-28">
       <Container className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-7">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-deep-sage">
-            {hero.eyebrow}
-          </p>
+          {/* Wraps between items, never inside one. Spacing separates the
+              items instead of "·" characters, which can end up dangling
+              at a line break. role="list" restores list semantics that
+              Safari drops when list bullets are removed with CSS. */}
+          <ul
+            role="list"
+            className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium uppercase tracking-[0.18em] text-deep-sage"
+          >
+            {hero.eyebrowItems.map((item) => (
+              <li key={item} className="whitespace-nowrap">
+                {item}
+              </li>
+            ))}
+          </ul>
           <h1
             id="hero-heading"
             className="mt-5 text-5xl leading-[1.05] sm:text-6xl lg:text-7xl"

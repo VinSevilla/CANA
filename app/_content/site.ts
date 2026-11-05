@@ -18,12 +18,24 @@ export const confirm = (detail: string): Placeholder => ({ confirm: detail });
 
 export type NavLink = { label: string; href: string };
 
+/**
+ * Service photo. `src` is a path under /public. Photos are not in git
+ * yet (licensing), so cards fall back to a placeholder showing
+ * `placeholderLabel` when the file is missing at build time.
+ * Photos are decorative (alt=""): the card title names the service.
+ */
+export type ServiceImage = { src: string; placeholderLabel: string };
+
 export type Service = {
   slug: string;
   name: string;
   href: string;
-  /** Path under /public. Decorative (alt=""): the card title names the service. */
-  image: string;
+  image: ServiceImage;
+  /**
+   * Homepage card text: the verbatim first sentence of `whoFor`.
+   * Excerpt only, never new wording. Full copy appears on /services.
+   */
+  summary: string;
   whoFor: Copy;
   whatToExpect: Copy;
 };
@@ -41,7 +53,12 @@ export const services: readonly Service[] = [
     slug: "hormone-therapy",
     name: "Hormone & Testosterone Therapy",
     href: "/services#hormone-therapy",
-    image: "/images/services/hormone-therapy.webp",
+    image: {
+      src: "/images/services/hormone-therapy.webp",
+      placeholderLabel: "hormone therapy consultation",
+    },
+    summary:
+      "Hormone and testosterone therapy may be appropriate for individuals experiencing symptoms such as persistent fatigue, reduced energy, low libido, changes in mood, or decreased muscle strength.",
     whoFor:
       "Hormone and testosterone therapy may be appropriate for individuals experiencing symptoms such as persistent fatigue, reduced energy, low libido, changes in mood, or decreased muscle strength. For those concerned about hormonal imbalances or age-related changes, a personalized medical evaluation can help determine whether treatment may be beneficial.",
     whatToExpect:
@@ -51,7 +68,12 @@ export const services: readonly Service[] = [
     slug: "aesthetic-injectables",
     name: "Botox & Aesthetic Injectables",
     href: "/services#aesthetic-injectables",
-    image: "/images/services/aesthetic-injectables.jpg",
+    image: {
+      src: "/images/services/aesthetic-injectables.jpg",
+      placeholderLabel: "aesthetic treatment room",
+    },
+    summary:
+      "Botox and aesthetic injectables may be suitable for individuals looking to soften the appearance of fine lines and wrinkles, address specific cosmetic concerns, or maintain a refreshed, natural-looking appearance.",
     whoFor:
       "Botox and aesthetic injectables may be suitable for individuals looking to soften the appearance of fine lines and wrinkles, address specific cosmetic concerns, or maintain a refreshed, natural-looking appearance. Whether exploring aesthetic treatments for the first time or maintaining previous results, the goal is to support your personal preferences and confidence.",
     whatToExpect:
@@ -61,7 +83,12 @@ export const services: readonly Service[] = [
     slug: "medical-weight-loss",
     name: "Medical Weight Loss",
     href: "/services#medical-weight-loss",
-    image: "/images/services/medical-weight-loss.avif",
+    image: {
+      src: "/images/services/medical-weight-loss.avif",
+      placeholderLabel: "wellness and nutrition",
+    },
+    summary:
+      "Medical weight loss may be appropriate for individuals who have struggled to achieve or maintain their weight-management goals through traditional approaches alone.",
     whoFor:
       "Medical weight loss may be appropriate for individuals who have struggled to achieve or maintain their weight-management goals through traditional approaches alone. It may also benefit those seeking a more structured, personalized strategy that considers their overall health, lifestyle, and individual needs.",
     whatToExpect:
@@ -114,7 +141,8 @@ export const stubNote =
 // --- Homepage ------------------------------------------------------------
 
 export const hero = {
-  eyebrow: "Hormone Therapy · Aesthetics · Weight Loss",
+  // Rendered as a wrapping list; each item stays on one line.
+  eyebrowItems: ["Hormone Therapy", "Aesthetics", "Weight Loss"],
   heading: "Medical wellness, thoughtfully restored.",
   body: "Hormone and testosterone therapy, Botox and aesthetic injectables, and medical weight loss, with one provider guiding your care from your first consultation onward.",
   cta: { label: "Explore services", href: "#services" },
@@ -145,24 +173,25 @@ export const servicesSection = {
   linkPrefix: "Learn about",
 } as const;
 
-// How It Works copy as provided by CANA (verbatim).
+// How It Works: titles and leads verbatim from CANA; bodies shortened by
+// deleting words only (Option A). PENDING CANA CONFIRMATION.
 export const howItWorks = {
   heading: "How It Works",
   steps: [
     {
       title: "Consultation",
       lead: "Your wellness journey begins with a conversation.",
-      body: "During your initial consultation, your provider will take time to understand your health concerns, medical history, and personal goals. Together, you'll discuss available treatment options, address questions, and determine whether further evaluation or testing may be appropriate.",
+      body: "Your provider will take time to understand your health concerns, medical history, and personal goals.",
     },
     {
       title: "Your Personalized Treatment Plan",
       lead: "Care designed around your individual needs.",
-      body: "Based on your consultation, clinical evaluation, and any necessary testing, your provider will help determine an appropriate course of care. If treatment is recommended, your plan will reflect your individual health needs, preferences, and goals, with an emphasis on safety, informed decisions, and realistic expectations.",
+      body: "If treatment is recommended, your plan will reflect your individual health needs, preferences, and goals.",
     },
     {
       title: "Ongoing Care & Follow-Up",
       lead: "Personalized support beyond your first visit.",
-      body: "Your care doesn't necessarily end after your initial treatment. Follow-up visits, when appropriate, allow your provider to evaluate your progress, address concerns, and make adjustments to your treatment plan as needed. Our goal is to support continuity of care and help you make informed decisions throughout your wellness journey.",
+      body: "Follow-up visits, when appropriate, allow your provider to evaluate your progress and make adjustments as needed.",
     },
   ],
 } as const;
