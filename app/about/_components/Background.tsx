@@ -4,8 +4,10 @@ import { aboutPage } from "../../_content/site";
 
 /**
  * Her background (Ivory), read as a short narrative: the approved paragraph
- * at a comfortable measure (max 60ch), with her credentials beside it as an
- * understated list, small type and fine dividers, never a card. Every
+ * at a comfortable measure (max 34rem, about 65 characters per line; "ch"
+ * units overshoot because "0" is wider than an average letter), with her
+ * credentials beside it as an understated list, small type and fine
+ * dividers, never a card. Every
  * credential value stays a placeholder until CANA confirms it.
  * Text: Espresso/Charcoal on Ivory (12.34 / 12.09). No links here.
  */
@@ -19,7 +21,7 @@ export function Background() {
             <h2 id="background-heading" className="text-4xl text-balance lg:text-5xl">
               {background.heading}
             </h2>
-            <p className="mt-8 max-w-[60ch] text-lg leading-relaxed">{background.body}</p>
+            <p className="mt-8 max-w-[34rem] text-lg leading-relaxed">{background.body}</p>
           </div>
           <div className="lg:col-span-4 lg:col-start-9">
             <h3 className="font-semibold text-espresso">{background.credentialsHeading}</h3>
