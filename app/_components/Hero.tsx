@@ -61,7 +61,7 @@ export function Hero() {
           <p className="mt-6 text-lg leading-relaxed lg:text-xl">{hero.body}</p>
           <Link
             href={hero.cta.href}
-            className="mt-9 inline-flex min-h-11 items-center rounded-full border border-ivory px-6 font-medium text-ivory hover:bg-ivory hover:text-espresso"
+            className="mt-9 inline-flex min-h-11 items-center rounded-full border border-ivory px-6 font-medium text-ivory hover:bg-ivory hover:text-espresso motion-safe:transition-colors motion-safe:duration-150"
           >
             {hero.cta.label}
           </Link>

@@ -54,7 +54,7 @@ export function AboutIntro() {
             <p className="mt-8 max-w-[38ch] text-lg leading-relaxed lg:text-xl">{aboutIntro.body}</p>
             <Link
               href={aboutIntro.link.href}
-              className="mt-10 inline-flex min-h-11 items-center font-medium text-deep-sage underline decoration-1 underline-offset-4 hover:decoration-2"
+              className="mt-10 inline-flex min-h-11 items-center font-medium text-deep-sage underline decoration-1 underline-offset-4 hover:decoration-2 motion-safe:transition-[text-decoration-thickness] motion-safe:duration-150"
             >
               {aboutIntro.link.label}
             </Link>

@@ -11,6 +11,8 @@ import { PhotoOrPlaceholder } from "./PhotoOrPlaceholder";
  * "Learn about ..." link's ::after covers the feature), so there is one Tab
  * stop and a short accessible name. Keyboard focus outlines the feature.
  * Images share one crop per layout: 4:3 on phones, 4:5 from lg.
+ * Hover/focus feedback (motion-safe only, <= 200ms): a 1.02 image scale
+ * inside the frame and a thicker underline. Nothing moves with reduced motion.
  */
 function ServiceFeature({ service }: { service: Service }) {
   return (
@@ -19,6 +21,7 @@ function ServiceFeature({ service }: { service: Service }) {
         photo={service.image}
         sizes="(min-width: 1024px) 340px, (min-width: 768px) 40vw, 100vw"
         rounded={false}
+        imgClassName="motion-safe:transition-transform motion-safe:duration-200 motion-safe:group-hover:scale-[1.02] motion-safe:group-has-[a:focus-visible]:scale-[1.02]"
         className="aspect-[4/3] md:col-span-5 lg:aspect-[4/5]"
       />
       <div className="mt-6 md:col-span-7 md:mt-0 lg:mt-7">
@@ -27,7 +30,7 @@ function ServiceFeature({ service }: { service: Service }) {
         <p className="mt-3 max-w-[36ch]">{service.summary}</p>
         <Link
           href={service.href}
-          className="mt-4 inline-flex min-h-11 items-center font-medium text-deep-sage underline decoration-1 underline-offset-4 group-hover:decoration-2 after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
+          className="mt-4 inline-flex min-h-11 items-center font-medium text-deep-sage underline decoration-1 underline-offset-4 group-hover:decoration-2 motion-safe:transition-[text-decoration-thickness] motion-safe:duration-150 after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
         >
           {servicesSection.linkPrefix} {service.name}
         </Link>
