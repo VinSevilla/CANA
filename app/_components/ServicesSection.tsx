@@ -22,7 +22,7 @@ function ServiceCard({ service }: { service: Service }) {
           so a screen-reader list of links isn't three identical "Learn more"s. */}
       <Link
         href={service.href}
-        className="mt-6 inline-flex min-h-11 items-center font-medium text-deep-sage underline decoration-1 underline-offset-4 hover:decoration-2"
+        className="mt-6 inline-flex min-h-11 items-center text-base font-medium text-deep-sage underline decoration-1 underline-offset-4 hover:decoration-2"
       >
         {servicesSection.linkPrefix} {service.name}
       </Link>

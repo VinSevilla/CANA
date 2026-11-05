@@ -36,7 +36,7 @@ export function Hero() {
           </ul>
           <h1
             id="hero-heading"
-            className="mt-5 text-5xl leading-[1.05] sm:text-6xl lg:text-7xl"
+            className="mt-5 text-5xl leading-[1.05] sm:text-6xl lg:text-7xl xl:text-[5.25rem]"
           >
             {hero.heading}
           </h1>

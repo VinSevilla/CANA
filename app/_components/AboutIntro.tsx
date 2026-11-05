@@ -13,7 +13,7 @@ export function AboutIntro() {
       <Container className="grid gap-10 lg:grid-cols-12 lg:gap-16">
         <h2
           id="about-heading"
-          className="text-4xl leading-tight lg:col-span-5 lg:text-5xl"
+          className="text-[2.5rem] leading-tight sm:text-5xl lg:col-span-5 lg:text-[3.5rem] xl:text-[4rem]"
         >
           {aboutIntro.heading}
         </h2>
