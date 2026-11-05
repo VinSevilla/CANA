@@ -249,10 +249,7 @@ export const aboutPage = {
   metaDescription:
     "Meet CANA's provider, a nurse practitioner focused on honest, personal care.",
   hero: {
-    eyebrow: "About CANA",
     heading: "Honest care from one provider who knows you.",
-    intro:
-      "CANA is built around a single provider: a nurse practitioner who will only recommend the care you actually need.",
     name: confirm("her name"),
     credentials: confirm("credential letters"),
     role: "Nurse practitioner · your provider at every visit",
