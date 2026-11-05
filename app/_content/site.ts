@@ -141,21 +141,24 @@ export const servicesSection = {
   linkPrefix: "Learn about",
 } as const;
 
-// Step titles describe the general flow; details stay unconfirmed.
+// How It Works copy as provided by CANA (verbatim).
 export const howItWorks = {
-  heading: "How it works",
+  heading: "How It Works",
   steps: [
     {
       title: "Consultation",
-      body: confirm("what happens at the first consultation"),
+      lead: "Your wellness journey begins with a conversation.",
+      body: "During your initial consultation, your provider will take time to understand your health concerns, medical history, and personal goals. Together, you'll discuss available treatment options, address questions, and determine whether further evaluation or testing may be appropriate.",
     },
     {
-      title: "Your treatment plan",
-      body: confirm("how treatment plans are created"),
+      title: "Your Personalized Treatment Plan",
+      lead: "Care designed around your individual needs.",
+      body: "Based on your consultation, clinical evaluation, and any necessary testing, your provider will help determine an appropriate course of care. If treatment is recommended, your plan will reflect your individual health needs, preferences, and goals, with an emphasis on safety, informed decisions, and realistic expectations.",
     },
     {
-      title: "Follow-up with the same provider",
-      body: confirm("follow-up schedule and format"),
+      title: "Ongoing Care & Follow-Up",
+      lead: "Personalized support beyond your first visit.",
+      body: "Your care doesn't necessarily end after your initial treatment. Follow-up visits, when appropriate, allow your provider to evaluate your progress, address concerns, and make adjustments to your treatment plan as needed. Our goal is to support continuity of care and help you make informed decisions throughout your wellness journey.",
     },
   ],
 } as const;

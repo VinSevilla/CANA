@@ -28,6 +28,7 @@ export function HowItWorks() {
               <h3 className="mt-3 text-xl font-semibold text-espresso">
                 {step.title}
               </h3>
+              <p className="mt-3 font-medium text-espresso">{step.lead}</p>
               <p className="mt-3">
                 <CopyText value={step.body} />
               </p>
