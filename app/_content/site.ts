@@ -185,8 +185,12 @@ export const providerPortrait: PhotoSource = {
 export const aboutIntro = {
   heading: "Care that feels personal.",
   body: "At CANA, you'll see the same provider at every visit. She gets to know you, your history, and what matters to you, so each appointment feels less like a checkup and more like catching up with someone who's genuinely in your corner.",
-  providerLabel: "Your provider",
+  // Portrait caption: the existing name placeholder (reused, not a new one)
+  // and her role. "Nurse practitioner" is a confirmed fact; this caption
+  // wording is new: PENDING CANA CONFIRMATION.
   provider: confirm("provider name, credentials, and licensure"),
+  role: "Nurse practitioner",
+  // Link label drafted in the prototype: PENDING CANA CONFIRMATION.
   link: { label: "Learn more about CANA", href: "/about" },
   portrait: providerPortrait,
 } as const;
