@@ -147,17 +147,22 @@ export const stubNote =
 
 // --- Homepage ------------------------------------------------------------
 
+// Hero: heading, body, and the "Explore services" label were drafted in the
+// prototype: PENDING CANA CONFIRMATION (wording kept for now).
 export const hero = {
-  // Rendered as a wrapping list; each item stays on one line.
-  eyebrowItems: ["Hormone Therapy", "Aesthetics", "Weight Loss"],
   heading: "Medical wellness, thoughtfully restored.",
   body: "Hormone and testosterone therapy, Botox and aesthetic injectables, and medical weight loss, with one provider guiding your care from your first consultation onward.",
   cta: { label: "Explore services", href: "#services" },
-  // No hero photo exists yet; shows the placeholder until one is added.
+  // No licensed hero photo yet; an Espresso field shows until one is added.
+  // Never ship the local stand-in (it shows another clinic's branding).
   image: {
     src: "/images/hero.jpg",
     placeholderLabel: "calm clinic interior or provider consultation",
   } satisfies PhotoSource,
+  // Focal points (CSS object-position) per layout: the mobile frame is a
+  // 16:9 band above the text; desktop is full-bleed with text on the left,
+  // so the subject should sit right of center. Tune per real photo.
+  focus: { mobile: "50% 45%", desktop: "72% 50%" },
 } as const;
 
 /**
