@@ -15,17 +15,20 @@ export function ImagePlaceholder({
   label,
   className = "",
   rounded = true,
+  tone = "light",
 }: {
   label: string;
   className?: string;
   /** false when a parent card already clips the corners. */
   rounded?: boolean;
+  /** "dark" sits on Espresso (e.g. the homepage hero) instead of Ivory. */
+  tone?: "light" | "dark";
 }) {
   return (
     <div
       role="img"
       aria-label={`Image placeholder: ${label}`}
-      className={`relative overflow-hidden bg-sage/25 ${rounded ? "rounded-2xl" : ""} ${className}`}
+      className={`relative overflow-hidden ${tone === "dark" ? "bg-espresso" : "bg-sage/25"} ${rounded ? "rounded-2xl" : ""} ${className}`}
     >
       <span
         aria-hidden="true"

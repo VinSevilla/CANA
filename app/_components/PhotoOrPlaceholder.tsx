@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import type { PhotoSource } from "../_content/site";
 import { ImagePlaceholder } from "./ImagePlaceholder";
 import { publicFileExists } from "./publicFileExists";
@@ -25,6 +26,9 @@ export function PhotoOrPlaceholder({
   preload = false,
   rounded = true,
   alt = "",
+  tone = "light",
+  imgClassName = "",
+  style,
 }: {
   photo: PhotoSource;
   sizes: string;
@@ -33,6 +37,12 @@ export function PhotoOrPlaceholder({
   /** false when a parent card already clips the corners. */
   rounded?: boolean;
   alt?: string;
+  /** "dark" for Espresso surroundings (hero): dark placeholder and backdrop. */
+  tone?: "light" | "dark";
+  /** Extra classes on the <img>, e.g. per-breakpoint object-position. */
+  imgClassName?: string;
+  /** Wrapper style, e.g. CSS variables consumed by imgClassName. */
+  style?: CSSProperties;
 }) {
   if (!publicFileExists(photo.src)) {
     return (
@@ -40,12 +50,14 @@ export function PhotoOrPlaceholder({
         label={photo.placeholderLabel}
         className={className}
         rounded={rounded}
+        tone={tone}
       />
     );
   }
   return (
     <div
-      className={`relative overflow-hidden bg-sage/25 ${rounded ? "rounded-2xl" : ""} ${className}`}
+      className={`relative overflow-hidden ${tone === "dark" ? "bg-espresso" : "bg-sage/25"} ${rounded ? "rounded-2xl" : ""} ${className}`}
+      style={style}
     >
       <Image
         src={photo.src}
@@ -53,7 +65,7 @@ export function PhotoOrPlaceholder({
         fill
         sizes={sizes}
         preload={preload}
-        className="object-cover"
+        className={`object-cover ${imgClassName}`}
       />
     </div>
   );

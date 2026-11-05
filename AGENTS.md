@@ -31,6 +31,10 @@ These rules apply to all code, copy, and design work in this repository.
   Deep Sage #62725A for links, buttons, and small text.
   Sage #7A8F70 is decorative only (never text or controls).
 - Light mode only. No scroll-triggered animations.
+- Motion: hover/focus feedback only, 200ms or less, behind `motion-safe`
+  (nothing moves when `prefers-reduced-motion` is set). No entrance
+  effects, parallax, counters, autoplay, custom cursors, or floating
+  decoration. Content must be fully visible without JavaScript or motion.
 - Images use fixed aspect ratios to prevent layout shift.
 
 ### Navigation & calls to action

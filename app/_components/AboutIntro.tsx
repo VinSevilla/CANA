@@ -1,55 +1,69 @@
 import Link from "next/link";
-import { aboutIntro } from "../_content/site";
+import { aboutIntro, aboutPage } from "../_content/site";
 import { Container } from "./Container";
 import { CopyText } from "./CopyText";
 import { PhotoOrPlaceholder } from "./PhotoOrPlaceholder";
 
 /**
- * Provider feature band: continuity of care with one provider, on
- * Espresso. No origin story here (About page only).
+ * Provider feature: the homepage's personal centerpiece (Ivory). Built like
+ * a print profile, not a card: a 4:5 portrait (max 380px wide on desktop,
+ * 75% on phones) with a full-Sage block offset 32-40px behind it
+ * (decorative only), a caption aligned to the portrait's edge, a large serif statement set
+ * lower than the portrait, CANA's approved paragraph, and one About link.
  *
- * On Espresso only Ivory text works (12.34:1; Ivory/80 label 8.47:1).
- * Deep Sage (2.65) and Charcoal (1.02) must not be used here. `on-dark`
- * switches the focus ring to ivory. There is no Book button in this band,
- * so the sticky Book bar logic is unaffected.
+ * Text: Espresso/Charcoal on Ivory (12.34 / 12.09); link Deep Sage (4.65).
+ * The portrait reuses the About page's approved alt text, since here the
+ * photo itself carries meaning. No Book button (sticky bar unaffected).
  */
 export function AboutIntro() {
   return (
-    <section
-      aria-labelledby="about-heading"
-      className="on-dark bg-espresso py-20 text-ivory lg:py-28"
-    >
-      <Container className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-7">
-          <h2
-            id="about-heading"
-            className="text-[2.5rem] leading-tight text-ivory sm:text-5xl lg:text-[3.5rem] xl:text-[4rem]"
-          >
-            {aboutIntro.heading}
-          </h2>
-          <p className="mt-6 max-w-prose text-lg leading-relaxed lg:text-xl">
-            {aboutIntro.body}
-          </p>
-          <p className="mt-8">
-            <span className="block text-sm font-medium uppercase tracking-[0.18em] text-ivory/80">
-              {aboutIntro.providerLabel}
-            </span>
-            <span className="mt-2 block">
-              <CopyText value={aboutIntro.provider} />
-            </span>
-          </p>
-          <Link
-            href={aboutIntro.link.href}
-            className="mt-10 inline-flex min-h-11 items-center font-medium text-ivory underline decoration-1 underline-offset-4 hover:decoration-2"
-          >
-            {aboutIntro.link.label}
-          </Link>
+    <section aria-labelledby="about-heading" className="pb-20 lg:pb-32">
+      <Container>
+        <div className="grid gap-14 border-t border-sage/30 pt-20 lg:grid-cols-12 lg:gap-16 lg:pt-28">
+          <figure className="w-3/4 lg:col-span-5 lg:w-full lg:max-w-[380px]">
+            <div className="relative">
+              {/* Decorative block: same size as the portrait, offset 32px
+                  (40px on desktop) down and right, in full Sage so it reads
+                  as a deliberate shape, not a near-match shadow. */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 translate-x-8 translate-y-8 bg-sage lg:translate-x-10 lg:translate-y-10"
+              />
+              {/* Opaque ivory backing: the placeholder fill is translucent, so
+                  without it the decorative block would show through. */}
+              <div className="relative bg-ivory">
+                <PhotoOrPlaceholder
+                  photo={aboutIntro.portrait}
+                  alt={aboutPage.hero.portraitAlt}
+                  sizes="(min-width: 1024px) 380px, 75vw"
+                  rounded={false}
+                  className="aspect-[4/5]"
+                />
+              </div>
+            </div>
+            <figcaption className="mt-14 lg:mt-16">
+              <span className="block font-medium text-espresso">
+                <CopyText value={aboutIntro.provider} />
+              </span>
+              <span className="mt-1 block">{aboutIntro.role}</span>
+            </figcaption>
+          </figure>
+          <div className="lg:col-span-6 lg:col-start-7 lg:mt-24">
+            <h2
+              id="about-heading"
+              className="text-[2.75rem] leading-[1.1] text-balance sm:text-5xl lg:text-[3.75rem] xl:text-[4.25rem]"
+            >
+              {aboutIntro.heading}
+            </h2>
+            <p className="mt-8 max-w-[38ch] text-lg leading-relaxed lg:text-xl">{aboutIntro.body}</p>
+            <Link
+              href={aboutIntro.link.href}
+              className="mt-10 inline-flex min-h-11 items-center font-medium text-deep-sage underline decoration-1 underline-offset-4 hover:decoration-2 motion-safe:transition-[text-decoration-thickness] motion-safe:duration-150"
+            >
+              {aboutIntro.link.label}
+            </Link>
+          </div>
         </div>
-        <PhotoOrPlaceholder
-          photo={aboutIntro.portrait}
-          sizes="(min-width: 1024px) 420px, 100vw"
-          className="aspect-[4/5] lg:col-span-5"
-        />
       </Container>
     </section>
   );
