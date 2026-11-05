@@ -20,7 +20,7 @@ export function ConsultationPanel() {
         <div className="lg:col-span-8">
           <h2
             id="consultation-heading"
-            className="text-4xl text-ivory lg:text-5xl"
+            className="text-4xl text-balance text-ivory lg:text-5xl"
           >
             {consultation.heading}
           </h2>
