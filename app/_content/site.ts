@@ -110,18 +110,25 @@ export const skipLinkLabel = "Skip to main content";
 /** `href` makes the value a link (e.g. tel: so phones can tap to call). */
 export type ContactItem = { label: string; value: Copy; href?: string };
 
+/**
+ * CANA's contact details: the single source for the footer and the Contact
+ * page. Phone is confirmed; address, email, and hours are TBD per CANA.
+ * Only give an item an `href` once its destination is confirmed; a
+ * placeholder must never become a link.
+ */
+export const contactDetails: readonly ContactItem[] = [
+  { label: "Address", value: confirm("clinic address") },
+  { label: "Phone", value: "(619) 512-7491", href: "tel:+16195127491" },
+  { label: "Email", value: confirm("email address") },
+  { label: "Hours", value: confirm("hours of operation") },
+];
+
 export const footer = {
   servicesHeading: "Services",
   clinicHeading: "Clinic",
   clinicLinks: [nav.home, nav.about, nav.contact] as readonly NavLink[],
   contactHeading: "Contact",
-  // Address, email, and hours are TBD per CANA; phone is confirmed.
-  contact: [
-    { label: "Address", value: confirm("clinic address") },
-    { label: "Phone", value: "(619) 512-7491", href: "tel:+16195127491" },
-    { label: "Email", value: confirm("email address") },
-    { label: "Hours", value: confirm("hours of operation") },
-  ] as readonly ContactItem[],
+  contact: contactDetails,
   legal: [
     confirm("privacy policy and notice of privacy practices"),
     confirm("terms of use"),
@@ -285,3 +292,37 @@ export const aboutPage = {
     attribution: confirm("her name"),
   },
 } as const;
+
+// --- Contact page ----------------------------------------------------------
+// All wording below was drafted for the prototype: PENDING CANA CONFIRMATION.
+// Contact details themselves come from contactDetails (single source).
+// No availability, response times, walk-ins, telehealth, or parking info.
+export const contactPage = {
+  metaDescription:
+    "How to reach CANA Health & Wellness and take the first step toward a consultation.",
+  eyebrow: "Contact",
+  heading: "Let's start with a conversation.",
+  intro:
+    "Have a question about a service, or ready to talk about a consultation? Here's how to reach CANA.",
+  detailsHeading: "How to reach CANA",
+  // Order on this page: the confirmed, actionable detail first.
+  detailOrder: ["Phone", "Email", "Address", "Hours"],
+  // Screen-reader prefix for tel: links ("Call (619) 512-7491").
+  callPrefix: "Call",
+  booking: { label: "Booking", value: confirm("how to book a consultation") },
+  notesHeading: "Before you reach out",
+  // PENDING CANA APPROVAL. Makes no claim that any channel is secure or
+  // HIPAA-compliant.
+  privacy: {
+    title: "Keep health details for your consultation",
+    body: "Please don't include medical details, such as symptoms, medications, or health history, in emails or general inquiries. You can share them with your provider during your consultation.",
+  },
+  // PENDING CANA APPROVAL; confirm it suits CANA's location before launch.
+  // Says nothing about what care CANA does or doesn't offer. 911 stays plain
+  // text (no tel: link) to avoid accidental emergency calls.
+  emergency: {
+    title: "In an emergency",
+    body: "If you are experiencing a medical emergency, call 911 or go to the nearest emergency room.",
+  },
+} as const;
+
