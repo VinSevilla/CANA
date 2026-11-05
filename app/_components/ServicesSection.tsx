@@ -1,13 +1,24 @@
+import Image from "next/image";
 import Link from "next/link";
 import { services, servicesSection, type Service } from "../_content/site";
 import { Container } from "./Container";
 import { CopyText } from "./CopyText";
-import { ImagePlaceholder } from "./ImagePlaceholder";
 
 function ServiceCard({ service }: { service: Service }) {
   return (
     <article className="flex flex-col">
-      <ImagePlaceholder label={service.imageLabel} className="aspect-[4/3]" />
+      {/* The wrapper fixes the 4:3 box (no layout shift); `fill` +
+          object-cover crops any photo shape into it. `sizes` tells the
+          browser the rendered width so it downloads a right-sized file. */}
+      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-sage/25">
+        <Image
+          src={service.image}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 340px, (min-width: 768px) 50vw, 100vw"
+          className="object-cover"
+        />
+      </div>
       {/* H3: card titles use Inter (serif is reserved for H1/H2). */}
       <h3 className="mt-6 text-xl font-semibold text-espresso lg:text-2xl">
         {service.name}

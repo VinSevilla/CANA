@@ -22,7 +22,8 @@ export type Service = {
   slug: string;
   name: string;
   href: string;
-  imageLabel: string;
+  /** Path under /public. Decorative (alt=""): the card title names the service. */
+  image: string;
   whoFor: Copy;
   whatToExpect: Copy;
 };
@@ -40,7 +41,7 @@ export const services: readonly Service[] = [
     slug: "hormone-therapy",
     name: "Hormone & Testosterone Therapy",
     href: "/services#hormone-therapy",
-    imageLabel: "hormone therapy consultation",
+    image: "/images/services/hormone-therapy.webp",
     whoFor: confirm("who hormone and testosterone therapy may be for"),
     whatToExpect: confirm("evaluation, lab work, and treatment process"),
   },
@@ -48,7 +49,7 @@ export const services: readonly Service[] = [
     slug: "aesthetic-injectables",
     name: "Botox & Aesthetic Injectables",
     href: "/services#aesthetic-injectables",
-    imageLabel: "aesthetic treatment room",
+    image: "/images/services/aesthetic-injectables.jpg",
     whoFor: confirm("who Botox and injectables may be for"),
     whatToExpect: confirm("treatment appointment and aftercare"),
   },
@@ -56,7 +57,7 @@ export const services: readonly Service[] = [
     slug: "medical-weight-loss",
     name: "Medical Weight Loss",
     href: "/services#medical-weight-loss",
-    imageLabel: "wellness and nutrition",
+    image: "/images/services/medical-weight-loss.avif",
     whoFor: confirm("who the weight loss program may be for"),
     whatToExpect: confirm("program structure, medication, and check-ins"),
   },
