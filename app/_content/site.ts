@@ -160,13 +160,20 @@ export const hero = {
 export type TrustItem = { label: string };
 export const trustItems: readonly TrustItem[] = [];
 
-// Homepage About intro. The Cana origin story belongs on /about only.
+// Homepage provider band. The Cana origin story belongs on /about only.
+// heading/body: drafted in the prototype, PENDING CANA CONFIRMATION.
 export const aboutIntro = {
   heading: "One provider at every visit.",
   body: "CANA is built around a single provider. The person you meet at your first consultation is the person you'll see at every appointment after it, so you never start over with someone new.",
   providerLabel: "Your provider",
   provider: confirm("provider name, credentials, and licensure"),
   link: { label: "Learn more about CANA", href: "/about" },
+  // Must be a photo of CANA's actual provider (never stock). Placeholder
+  // until one is supplied.
+  portrait: {
+    src: "/images/provider/portrait.jpg",
+    placeholderLabel: "portrait of CANA's provider",
+  } satisfies PhotoSource,
 } as const;
 
 export const servicesSection = {
