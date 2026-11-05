@@ -281,9 +281,6 @@ export const aboutPage = {
   },
   background: {
     heading: "A decade of medical practice",
-    // Approved by CANA.
-    stat: "10+",
-    statLabel: "years practicing and prescribing as a nurse practitioner",
     body: "She has been practicing and prescribing as a nurse practitioner for more than 10 years. She has also worked in aesthetic care for two years, building on that medical foundation: the same attention to health history, safety, and informed decisions she brings to every visit.",
     credentialsHeading: "Credentials",
     credentials: [
