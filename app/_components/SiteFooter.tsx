@@ -67,7 +67,13 @@ export function SiteFooter() {
                 <div key={item.label}>
                   <dt className="text-sm font-medium text-espresso">{item.label}</dt>
                   <dd className="mt-0.5">
-                    <CopyText value={item.value} />
+                    {item.href ? (
+                      <a href={item.href} className={linkClass}>
+                        <CopyText value={item.value} />
+                      </a>
+                    ) : (
+                      <CopyText value={item.value} />
+                    )}
                   </dd>
                 </div>
               ))}

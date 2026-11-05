@@ -80,17 +80,21 @@ export const book: NavLink = { label: "Book Consultation", href: "/book" };
 
 export const skipLinkLabel = "Skip to main content";
 
+/** `href` makes the value a link (e.g. tel: so phones can tap to call). */
+export type ContactItem = { label: string; value: Copy; href?: string };
+
 export const footer = {
   servicesHeading: "Services",
   clinicHeading: "Clinic",
   clinicLinks: [nav.home, nav.about, nav.contact] as readonly NavLink[],
   contactHeading: "Contact",
+  // Address, email, and hours are TBD per CANA; phone is confirmed.
   contact: [
     { label: "Address", value: confirm("clinic address") },
-    { label: "Phone", value: confirm("phone number") },
+    { label: "Phone", value: "(619) 512-7491", href: "tel:+16195127491" },
     { label: "Email", value: confirm("email address") },
     { label: "Hours", value: confirm("hours of operation") },
-  ],
+  ] as readonly ContactItem[],
   legal: [
     confirm("privacy policy and notice of privacy practices"),
     confirm("terms of use"),
