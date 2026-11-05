@@ -20,11 +20,11 @@ export function ContactNotes() {
         </h2>
         <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:gap-8">
           <div className="rounded-2xl border border-sage/40 bg-ivory p-6 shadow-sm shadow-espresso/5 sm:p-8">
-            <h3 className="text-xl font-semibold text-espresso lg:text-2xl">{privacy.title}</h3>
+            <h3 className="text-xl font-semibold text-balance text-espresso lg:text-2xl">{privacy.title}</h3>
             <p className="mt-3">{privacy.body}</p>
           </div>
           <div className="rounded-2xl border border-sage/40 border-l-4 border-l-espresso bg-ivory p-6 shadow-sm shadow-espresso/5 sm:p-8">
-            <h3 className="text-xl font-semibold text-espresso lg:text-2xl">{emergency.title}</h3>
+            <h3 className="text-xl font-semibold text-balance text-espresso lg:text-2xl">{emergency.title}</h3>
             <p className="mt-3">{emergency.body}</p>
           </div>
         </div>
