@@ -10,8 +10,8 @@ import { MobileMenu } from "./MobileMenu";
  * Server Component: the static parts render as plain HTML; only the
  * interactive pieces (DesktopNav, MobileMenu) ship JavaScript.
  *
- * Not sticky (approved: desktop has no persistent Book button; mobile gets
- * a separate sticky bar in a later checkpoint). There is exactly ONE Book
+ * Not sticky (approved: desktop has no persistent Book button; below `lg`
+ * StickyBookBar takes over once this button scrolls away). There is exactly ONE Book
  * button here at every screen size; HEADER_BOOK_ID lets the
  * sticky bar detect when it scrolls out of view.
  */

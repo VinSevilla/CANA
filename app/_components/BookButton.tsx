@@ -22,10 +22,12 @@ const tones = {
 export function BookButton({
   id,
   compact = false,
+  fullWidth = false,
   tone = "default",
 }: {
   id?: string;
   compact?: boolean;
+  fullWidth?: boolean;
   tone?: keyof typeof tones;
 }) {
   const [first, ...rest] = book.label.split(" ");
@@ -33,7 +35,9 @@ export function BookButton({
     <Link
       id={id}
       href={book.href}
-      className={`inline-flex items-center rounded-full font-medium ${tones[tone]}`}
+      className={`inline-flex items-center rounded-full font-medium ${
+        fullWidth ? "w-full justify-center" : ""
+      } ${tones[tone]}`}
     >
       {/* One inline wrapper: inside a flex container, the space before
           "Consultation" would otherwise be trimmed ("BookConsultation"). */}

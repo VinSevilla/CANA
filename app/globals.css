@@ -43,6 +43,21 @@
     outline-offset: 3px;
   }
 
+  /*
+   * Below `lg` the sticky Book bar (~69px) covers the bottom of the
+   * screen. scroll-padding makes the browser keep focused/anchored
+   * elements above it (WCAG 2.4.11 Focus Not Obscured); the body
+   * padding lets the footer's last line scroll clear of it.
+   */
+  @variant max-lg {
+    html {
+      scroll-padding-bottom: 5rem;
+    }
+    body {
+      padding-bottom: 5rem;
+    }
+  }
+
   /* On dark sections Deep Sage is only 2.65:1; ivory is 12.3:1. */
   .on-dark :focus-visible {
     outline-color: var(--color-ivory);

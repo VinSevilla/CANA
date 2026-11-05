@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { SiteFooter } from "./_components/SiteFooter";
 import { SiteHeader } from "./_components/SiteHeader";
+import { StickyBookBar } from "./_components/StickyBookBar";
 import { MAIN_ID } from "./_components/ids";
 import { site, skipLinkLabel } from "./_content/site";
 import "./globals.css";
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
+        <StickyBookBar />
       </body>
     </html>
   );
