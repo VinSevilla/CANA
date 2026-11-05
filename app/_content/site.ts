@@ -42,24 +42,30 @@ export const services: readonly Service[] = [
     name: "Hormone & Testosterone Therapy",
     href: "/services#hormone-therapy",
     image: "/images/services/hormone-therapy.webp",
-    whoFor: confirm("who hormone and testosterone therapy may be for"),
-    whatToExpect: confirm("evaluation, lab work, and treatment process"),
+    whoFor:
+      "Hormone and testosterone therapy may be appropriate for individuals experiencing symptoms such as persistent fatigue, reduced energy, low libido, changes in mood, or decreased muscle strength. For those concerned about hormonal imbalances or age-related changes, a personalized medical evaluation can help determine whether treatment may be beneficial.",
+    whatToExpect:
+      "Your journey begins with an evaluation of your health history, symptoms, and wellness goals. When appropriate, laboratory testing can help assess hormone levels and guide treatment decisions. If therapy is recommended, your care plan may include ongoing monitoring and adjustments based on your individual needs, response to treatment, and long-term health.",
   },
   {
     slug: "aesthetic-injectables",
     name: "Botox & Aesthetic Injectables",
     href: "/services#aesthetic-injectables",
     image: "/images/services/aesthetic-injectables.jpg",
-    whoFor: confirm("who Botox and injectables may be for"),
-    whatToExpect: confirm("treatment appointment and aftercare"),
+    whoFor:
+      "Botox and aesthetic injectables may be suitable for individuals looking to soften the appearance of fine lines and wrinkles, address specific cosmetic concerns, or maintain a refreshed, natural-looking appearance. Whether exploring aesthetic treatments for the first time or maintaining previous results, the goal is to support your personal preferences and confidence.",
+    whatToExpect:
+      "The process begins with a consultation to discuss your aesthetic goals, facial features, and available treatment options. Your provider will review the potential benefits, risks, and expected results before recommending an appropriate approach. Depending on the treatment, injections may be completed during a brief office visit. Results, recovery time, and maintenance needs vary by treatment and individual response.",
   },
   {
     slug: "medical-weight-loss",
     name: "Medical Weight Loss",
     href: "/services#medical-weight-loss",
     image: "/images/services/medical-weight-loss.avif",
-    whoFor: confirm("who the weight loss program may be for"),
-    whatToExpect: confirm("program structure, medication, and check-ins"),
+    whoFor:
+      "Medical weight loss may be appropriate for individuals who have struggled to achieve or maintain their weight-management goals through traditional approaches alone. It may also benefit those seeking a more structured, personalized strategy that considers their overall health, lifestyle, and individual needs.",
+    whatToExpect:
+      "Your experience begins with an assessment of your medical history, current health, and personal goals. Depending on your needs and medical eligibility, your plan may include nutritional guidance, lifestyle recommendations, prescription treatment options, and ongoing follow-up. The focus is on supporting sustainable progress, informed decisions, and long-term health rather than quick fixes or unrealistic expectations.",
   },
 ];
 
