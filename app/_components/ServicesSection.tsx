@@ -16,21 +16,21 @@ import { PhotoOrPlaceholder } from "./PhotoOrPlaceholder";
  */
 function ServiceFeature({ service }: { service: Service }) {
   return (
-    <article className="group relative md:grid md:grid-cols-12 md:items-center md:gap-8 lg:block has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-8 has-[a:focus-visible]:outline-deep-sage">
+    <article className="group relative md:grid md:grid-cols-12 md:items-center md:gap-8 lg:row-span-4 lg:grid-cols-1 lg:grid-rows-subgrid lg:items-start lg:gap-0 has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-8 has-[a:focus-visible]:outline-deep-sage">
       <PhotoOrPlaceholder
         photo={service.image}
         sizes="(min-width: 1024px) 340px, (min-width: 768px) 40vw, 100vw"
         rounded={false}
         imgClassName="motion-safe:transition-transform motion-safe:duration-200 motion-safe:group-hover:scale-[1.02] motion-safe:group-has-[a:focus-visible]:scale-[1.02]"
-        className="aspect-[4/3] md:col-span-5 lg:aspect-[4/5]"
+        className="aspect-[4/3] md:col-span-5 lg:col-span-1 lg:aspect-[4/5]"
       />
-      <div className="mt-6 md:col-span-7 md:mt-0 lg:mt-7">
+      <div className="mt-6 md:col-span-7 md:mt-0 lg:contents">
         {/* H3: Inter (serif is reserved for H1/H2). */}
-        <h3 className="text-2xl font-semibold text-balance text-espresso">{service.name}</h3>
+        <h3 className="text-2xl font-semibold text-balance text-espresso lg:mt-7">{service.name}</h3>
         <p className="mt-3 max-w-[36ch]">{service.summary}</p>
         <Link
           href={service.href}
-          className="mt-4 inline-flex min-h-11 items-center font-medium text-deep-sage underline decoration-1 underline-offset-4 group-hover:decoration-2 motion-safe:transition-[text-decoration-thickness] motion-safe:duration-150 after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
+          className="mt-4 inline-flex min-h-11 items-center self-start font-medium text-deep-sage underline decoration-1 underline-offset-4 group-hover:decoration-2 motion-safe:transition-[text-decoration-thickness] motion-safe:duration-150 after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
         >
           {servicesSection.linkPrefix} {service.name}
         </Link>
@@ -40,28 +40,26 @@ function ServiceFeature({ service }: { service: Service }) {
 }
 
 /**
- * Services (Ivory), right after the hero. Desktop: a split heading row
- * (title left, intro right) and three equal features with the middle one
- * set lower; equal sizes so no service reads as more important, and DOM
- * order equals reading order. Tablet: image beside text. Phones: a simple
- * stack.
+ * Services (Ivory), right after the hero. The intro sits directly under
+ * the heading. Desktop: three equal features on shared lines (images,
+ * headings, summaries, and links align). The features share rows via CSS
+ * subgrid (image / title / summary / link), so each row is as tall as its
+ * longest entry and differing title lengths don't stagger them. Equal sizes so no
+ * service reads as more important. Tablet: image beside text. Phones: a
+ * simple stack.
  */
 export function ServicesSection() {
   return (
     // id="services" is the hero's "Explore services" target.
     <section id="services" aria-labelledby="services-heading" className="py-20 lg:py-28">
       <Container>
-        <div className="lg:grid lg:grid-cols-12 lg:items-end lg:gap-16">
-          <h2 id="services-heading" className="text-4xl lg:col-span-5 lg:text-5xl">
-            {servicesSection.heading}
-          </h2>
-          <p className="mt-4 max-w-[36ch] text-lg lg:col-span-6 lg:col-start-7 lg:mt-0 lg:text-xl">
-            {servicesSection.intro}
-          </p>
-        </div>
-        <ul role="list" className="mt-14 grid gap-16 lg:mt-20 lg:grid-cols-3 lg:gap-12">
-          {services.map((service, index) => (
-            <li key={service.slug} className={index === 1 ? "lg:mt-24" : undefined}>
+        <h2 id="services-heading" className="text-4xl lg:text-5xl">
+          {servicesSection.heading}
+        </h2>
+        <p className="mt-4 max-w-[36ch] text-lg lg:text-xl">{servicesSection.intro}</p>
+        <ul role="list" className="mt-14 grid gap-16 lg:mt-20 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-0">
+          {services.map((service) => (
+            <li key={service.slug} className="lg:row-span-4 lg:grid lg:grid-rows-subgrid">
               <ServiceFeature service={service} />
             </li>
           ))}
