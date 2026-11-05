@@ -3,40 +3,48 @@ import { Container } from "./Container";
 import { CopyText } from "./CopyText";
 
 /**
- * An ordered list (<ol>) carries the sequence for screen readers; the big
- * numbers are visual only (aria-hidden) so steps aren't announced twice.
+ * Compact How It Works (Ivory): a numbered typographic list, not a card
+ * grid. Desktop: heading left (4 cols), list right (8 cols); each row is
+ * number | title + lead | body, separated by fine Sage rules. Phones: a
+ * stacked list. All copy is CANA-approved.
  *
- * Ivory background; its top edge is marked by the change from the
- * Services tint above. Contrast: Espresso 12.34, Charcoal 12.09, Deep
- * Sage step numbers (24px) 4.65.
+ * The <ol> carries the sequence; the "01" numbers are visual only
+ * (aria-hidden) so steps aren't announced twice. Numbers are 14px Deep Sage
+ * on Ivory (4.65:1). No links here.
  */
 export function HowItWorks() {
   return (
-    <section aria-labelledby="how-heading" className="py-20 lg:py-32">
+    <section aria-labelledby="how-heading" className="pb-20 lg:pb-28">
       <Container>
-        <h2 id="how-heading" className="text-4xl lg:text-5xl">
-          {howItWorks.heading}
-        </h2>
-        {/* One column until lg: three columns at 768px were too narrow. */}
-        <ol className="mt-14 grid gap-12 lg:grid-cols-3 lg:gap-10">
-          {howItWorks.steps.map((step, index) => (
-            <li key={step.title} className="border-t border-sage pt-6">
-              <span
-                aria-hidden="true"
-                className="block text-2xl font-semibold tracking-[0.12em] text-deep-sage"
+        <div className="border-t border-sage/30 pt-16 lg:grid lg:grid-cols-12 lg:gap-16 lg:pt-20">
+          <h2 id="how-heading" className="text-3xl text-balance lg:col-span-4 lg:text-4xl">
+            {howItWorks.heading}
+          </h2>
+          <ol className="mt-10 divide-y divide-sage/30 lg:col-span-8 lg:mt-0">
+            {howItWorks.steps.map((step, index) => (
+              <li
+                key={step.title}
+                className="grid gap-x-6 gap-y-3 py-7 first:pt-0 last:pb-0 sm:grid-cols-[2.5rem_minmax(0,1fr)] lg:grid-cols-[2.5rem_minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-x-10"
               >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-3 text-xl font-semibold text-espresso">
-                {step.title}
-              </h3>
-              <p className="mt-3 font-medium text-espresso">{step.lead}</p>
-              <p className="mt-3">
-                <CopyText value={step.body} />
-              </p>
-            </li>
-          ))}
-        </ol>
+                <span
+                  aria-hidden="true"
+                  className="pt-1 text-sm font-semibold tracking-[0.12em] text-deep-sage"
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="text-lg font-semibold text-balance text-espresso lg:text-xl">
+                    {step.title}
+                  </h3>
+                  <p className="mt-1 font-medium text-espresso">{step.lead}</p>
+                </div>
+                <p className="sm:col-start-2 lg:col-start-auto">
+                  <CopyText value={step.body} />
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
       </Container>
     </section>
   );
