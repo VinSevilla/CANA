@@ -191,6 +191,9 @@ export const aboutIntro = {
   portrait: providerPortrait,
 } as const;
 
+// Services section: heading "Services" is a plain label; the intro "Three
+// areas of care, one provider." was drafted in the prototype: PENDING CANA
+// CONFIRMATION (wording kept for now). Card summaries are verbatim CANA copy.
 export const servicesSection = {
   heading: "Services",
   intro: "Three areas of care, one provider.",

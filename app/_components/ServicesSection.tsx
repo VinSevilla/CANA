@@ -4,40 +4,30 @@ import { Container } from "./Container";
 import { PhotoOrPlaceholder } from "./PhotoOrPlaceholder";
 
 /**
- * Ivory card surface; the whole card is clickable through ONE link.
+ * One unboxed editorial feature: image, title, approved summary, link. No
+ * border, surface, or shadow; whitespace separates the features.
  *
- * "Stretched link": the "Learn about …" link's ::after covers the whole
- * card (the card is `relative`), so a click anywhere follows that link.
- * There is still exactly one interactive element per card: one Tab stop
- * and a short accessible name, with no link nested inside a link and no
- * heading inside a link. Trade-off: card text can't be mouse-selected.
- *
- * Focus: the link's own ring is hidden and the card draws it instead
- * (`has-[a:focus-visible]`), so keyboard users see the whole target.
+ * The whole feature is clickable through ONE link ("stretched link": the
+ * "Learn about ..." link's ::after covers the feature), so there is one Tab
+ * stop and a short accessible name. Keyboard focus outlines the feature.
+ * Images share one crop per layout: 4:3 on phones, 4:5 from lg.
  */
-function ServiceCard({ service }: { service: Service }) {
+function ServiceFeature({ service }: { service: Service }) {
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-sage/40 bg-ivory shadow-sm shadow-espresso/5 hover:shadow-md hover:shadow-espresso/10 has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-4 has-[a:focus-visible]:outline-deep-sage">
-      {/* 4:3 when cards are full-width (phones), taller 4:5 from md. */}
+    <article className="group relative md:grid md:grid-cols-12 md:items-center md:gap-8 lg:block has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-8 has-[a:focus-visible]:outline-deep-sage">
       <PhotoOrPlaceholder
         photo={service.image}
-        sizes="(min-width: 1024px) 340px, (min-width: 768px) 50vw, 100vw"
-        className="aspect-[4/3] md:aspect-[4/5]"
+        sizes="(min-width: 1024px) 340px, (min-width: 768px) 40vw, 100vw"
         rounded={false}
+        className="aspect-[4/3] md:col-span-5 lg:aspect-[4/5]"
       />
-      <div className="flex flex-1 flex-col p-6 lg:p-7">
-        {/* H3: card titles use Inter (serif is reserved for H1/H2). */}
-        <h3 className="text-xl font-semibold text-espresso lg:text-2xl">
-          {service.name}
-        </h3>
-        {/* Short summary only; the full "Who it may be for" / "What to
-            expect" copy lives on /services (the link below). */}
-        <p className="mt-3 text-base">{service.summary}</p>
-        {/* Link text names the service ("Learn about Medical Weight Loss"),
-            so a screen-reader list of links isn't three identical "Learn more"s. */}
+      <div className="mt-6 md:col-span-7 md:mt-0 lg:mt-7">
+        {/* H3: Inter (serif is reserved for H1/H2). */}
+        <h3 className="text-2xl font-semibold text-balance text-espresso">{service.name}</h3>
+        <p className="mt-3 max-w-[36ch]">{service.summary}</p>
         <Link
           href={service.href}
-          className="mt-auto inline-flex min-h-11 items-center pt-6 text-base font-medium text-deep-sage underline decoration-1 underline-offset-4 group-hover:decoration-2 after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
+          className="mt-4 inline-flex min-h-11 items-center font-medium text-deep-sage underline decoration-1 underline-offset-4 group-hover:decoration-2 after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
         >
           {servicesSection.linkPrefix} {service.name}
         </Link>
@@ -46,28 +36,33 @@ function ServiceCard({ service }: { service: Service }) {
   );
 }
 
+/**
+ * Services (Ivory), right after the hero. Desktop: a split heading row
+ * (title left, intro right) and three equal features with the middle one
+ * set lower; equal sizes so no service reads as more important, and DOM
+ * order equals reading order. Tablet: image beside text. Phones: a simple
+ * stack.
+ */
 export function ServicesSection() {
   return (
     // id="services" is the hero's "Explore services" target.
-    // Sage/10 tint (#eae9de) so the ivory cards read as surfaces. On the
-    // tint itself only Espresso (11.21) and Charcoal (10.98) text: Deep
-    // Sage drops to 4.23, so links stay inside the ivory cards (4.65).
-    // The cards' Deep Sage focus outline against the tint is 4.23 (3:1 needed).
-    <section
-      id="services"
-      aria-labelledby="services-heading"
-      className="bg-sage/10 py-20 lg:py-32"
-    >
+    <section id="services" aria-labelledby="services-heading" className="py-20 lg:py-28">
       <Container>
-        <h2 id="services-heading" className="text-4xl lg:text-5xl">
-          {servicesSection.heading}
-        </h2>
-        <p className="mt-4 text-lg lg:text-xl">{servicesSection.intro}</p>
-        <div className="mt-14 grid gap-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
-          {services.map((service) => (
-            <ServiceCard key={service.slug} service={service} />
-          ))}
+        <div className="lg:grid lg:grid-cols-12 lg:items-end lg:gap-16">
+          <h2 id="services-heading" className="text-4xl lg:col-span-5 lg:text-5xl">
+            {servicesSection.heading}
+          </h2>
+          <p className="mt-4 max-w-[36ch] text-lg lg:col-span-6 lg:col-start-7 lg:mt-0 lg:text-xl">
+            {servicesSection.intro}
+          </p>
         </div>
+        <ul role="list" className="mt-14 grid gap-16 lg:mt-20 lg:grid-cols-3 lg:gap-12">
+          {services.map((service, index) => (
+            <li key={service.slug} className={index === 1 ? "lg:mt-24" : undefined}>
+              <ServiceFeature service={service} />
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
   );
