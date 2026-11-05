@@ -161,10 +161,11 @@ export type TrustItem = { label: string };
 export const trustItems: readonly TrustItem[] = [];
 
 // Homepage provider band. The Cana origin story belongs on /about only.
-// heading/body: drafted in the prototype, PENDING CANA CONFIRMATION.
+// heading/body: confirmed by CANA (verbatim). Provider details below are
+// still unconfirmed.
 export const aboutIntro = {
-  heading: "One provider at every visit.",
-  body: "CANA is built around a single provider. The person you meet at your first consultation is the person you'll see at every appointment after it, so you never start over with someone new.",
+  heading: "Care that feels personal.",
+  body: "At CANA, you'll see the same provider at every visit. She gets to know you, your history, and what matters to you, so each appointment feels less like a checkup and more like catching up with someone who's genuinely in your corner.",
   providerLabel: "Your provider",
   provider: confirm("provider name, credentials, and licensure"),
   link: { label: "Learn more about CANA", href: "/about" },
@@ -184,8 +185,8 @@ export const servicesSection = {
   linkPrefix: "Learn about",
 } as const;
 
-// How It Works: titles and leads verbatim from CANA; bodies shortened by
-// deleting words only (Option A). PENDING CANA CONFIRMATION.
+// How It Works: titles and leads verbatim from CANA; bodies are the
+// shortened Option A versions, confirmed by CANA.
 export const howItWorks = {
   heading: "How It Works",
   steps: [
