@@ -219,12 +219,12 @@ export const consultation = {
 } as const;
 
 // --- About page -----------------------------------------------------------
-// All wording below was drafted for the prototype: PENDING CANA CONFIRMATION.
-// It draws only on these confirmed facts: CANA's only provider is a nurse
-// practitioner; she has practiced and prescribed as an NP for over 10 years
-// (exact wording pending); she has worked in aesthetics for 2 years; she
-// won't recommend or prescribe treatment a patient doesn't need; patients
-// see the same provider at every visit. Everything else is a confirm().
+// All wording below has been approved by CANA, including the stated
+// experience (10+ years practicing and prescribing as a nurse practitioner;
+// two years in aesthetic care). Facts not yet supplied stay as confirm()
+// placeholders (her name, credential letters, licensure, board
+// certification, education, origin story); her portrait stays a photo
+// placeholder until CANA supplies one.
 // No quotes attributed to her, testimonials, counts, outcomes, or awards.
 export const aboutPage = {
   metaDescription:
@@ -265,10 +265,10 @@ export const aboutPage = {
   },
   background: {
     heading: "A decade of medical practice",
-    // "10+ years practicing and prescribing": exact wording PENDING.
+    // Approved by CANA.
     stat: "10+",
     statLabel: "years practicing and prescribing as a nurse practitioner",
-    body: "She has been practicing and prescribing as a nurse practitioner for more than 10 years. Two years ago she added aesthetic care, building on that medical foundation: the same attention to health history, safety, and informed decisions she brings to every visit.",
+    body: "She has been practicing and prescribing as a nurse practitioner for more than 10 years. She has also worked in aesthetic care for two years, building on that medical foundation: the same attention to health history, safety, and informed decisions she brings to every visit.",
     credentialsHeading: "Credentials",
     credentials: [
       { label: "Name", value: confirm("name") },
