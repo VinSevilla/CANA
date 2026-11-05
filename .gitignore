@@ -40,11 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Service photos: kept out of git until image licensing is confirmed.
-# The GitHub repo is public, so committing them would publish them.
-# Delete these lines once the photos are licensed or replaced.
-/public/images/services/
-
-# Hero photo: local review only. The current placeholder image shows
-# another clinic's branding and is unlicensed; never commit it.
-/public/images/hero.jpg
+# Local images (service photos, hero, provider portrait): kept out of git
+# until licensing is confirmed. The GitHub repo is public, so committing
+# them would publish them; the current hero image also shows another
+# clinic's branding. Pages fall back to placeholders when files are
+# missing. Remove this entry once licensed images are ready to commit.
+/public/images/

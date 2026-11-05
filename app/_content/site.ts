@@ -160,6 +160,13 @@ export const hero = {
 export type TrustItem = { label: string };
 export const trustItems: readonly TrustItem[] = [];
 
+// Photo of CANA's actual provider (never stock). Shared by the homepage
+// provider band and the About page; placeholder until one is supplied.
+export const providerPortrait: PhotoSource = {
+  src: "/images/provider/portrait.jpg",
+  placeholderLabel: "portrait of CANA's provider",
+};
+
 // Homepage provider band. The Cana origin story belongs on /about only.
 // heading/body: confirmed by CANA (verbatim). Provider details below are
 // still unconfirmed.
@@ -169,12 +176,7 @@ export const aboutIntro = {
   providerLabel: "Your provider",
   provider: confirm("provider name, credentials, and licensure"),
   link: { label: "Learn more about CANA", href: "/about" },
-  // Must be a photo of CANA's actual provider (never stock). Placeholder
-  // until one is supplied.
-  portrait: {
-    src: "/images/provider/portrait.jpg",
-    placeholderLabel: "portrait of CANA's provider",
-  } satisfies PhotoSource,
+  portrait: providerPortrait,
 } as const;
 
 export const servicesSection = {
@@ -208,8 +210,78 @@ export const howItWorks = {
   ],
 } as const;
 
+// Consultation panel, shared by the homepage and the About page.
+// heading/body: drafted in the prototype, PENDING CANA CONFIRMATION.
 export const consultation = {
   heading: "Start with a consultation.",
   body: "Talk through your goals with CANA's provider and find out which care may be right for you.",
   details: confirm("consultation format, length, and fee"),
+} as const;
+
+// --- About page -----------------------------------------------------------
+// All wording below has been approved by CANA, including the stated
+// experience (10+ years practicing and prescribing as a nurse practitioner;
+// two years in aesthetic care). Facts not yet supplied stay as confirm()
+// placeholders (her name, credential letters, licensure, board
+// certification, education, origin story); her portrait stays a photo
+// placeholder until CANA supplies one.
+// No quotes attributed to her, testimonials, counts, outcomes, or awards.
+export const aboutPage = {
+  metaDescription:
+    "Meet CANA's provider, a nurse practitioner focused on honest, personal care.",
+  hero: {
+    eyebrow: "About CANA",
+    heading: "Honest care from one provider who knows you.",
+    intro:
+      "CANA is built around a single provider: a nurse practitioner who will only recommend the care you actually need.",
+    name: confirm("her name"),
+    credentials: confirm("credential letters"),
+    role: "Nurse practitioner · your provider at every visit",
+    // Meaningful on this page (who she is), so not decorative. Add her name
+    // once confirmed.
+    portraitAlt: "Portrait of CANA's nurse practitioner",
+  },
+  approach: {
+    label: "The CANA approach",
+    heading: "If you don't need a treatment, she won't recommend it.",
+    body: "Every visit starts with an honest conversation about your health, your goals, and your options. When a treatment makes sense, she'll explain why. When it doesn't, she'll tell you that too.",
+  },
+  principles: {
+    heading: "What honest care looks like",
+    items: [
+      {
+        title: "Only what you need",
+        body: "Recommendations are based on your health and goals. She won't recommend or prescribe treatment you don't need.",
+      },
+      {
+        title: "Straight answers",
+        body: "You'll hear the potential benefits, the risks, and what to realistically expect before you decide anything.",
+      },
+      {
+        title: "The same provider, every visit",
+        body: "You'll see her at every appointment, so your care builds on what she already knows about you.",
+      },
+    ],
+  },
+  background: {
+    heading: "A decade of medical practice",
+    // Approved by CANA.
+    stat: "10+",
+    statLabel: "years practicing and prescribing as a nurse practitioner",
+    body: "She has been practicing and prescribing as a nurse practitioner for more than 10 years. She has also worked in aesthetic care for two years, building on that medical foundation: the same attention to health history, safety, and informed decisions she brings to every visit.",
+    credentialsHeading: "Credentials",
+    credentials: [
+      { label: "Name", value: confirm("name") },
+      { label: "Credentials", value: confirm("credential letters") },
+      { label: "State licensure", value: confirm("state(s) of licensure") },
+      { label: "Board certification", value: confirm("board certification") },
+      { label: "Education", value: confirm("education") },
+    ],
+  },
+  origin: {
+    heading: "Why CANA",
+    // Her own words go here; nothing of ours is placed inside the quote.
+    story: confirm("the story of why she started CANA, in her own words"),
+    attribution: confirm("her name"),
+  },
 } as const;
