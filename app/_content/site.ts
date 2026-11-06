@@ -272,9 +272,9 @@ export const aboutPage = {
     name: providerName,
     credentials: providerCredentials,
     role: "Nurse practitioner · your provider at every visit",
-    // Meaningful on this page (who she is), so not decorative. Add her name
-    // once confirmed.
-    portraitAlt: "Portrait of CANA's nurse practitioner",
+    // Meaningful on both pages (who she is), so not decorative. Approved
+    // wording: "Portrait of Ramona Sevilla Zepeda, nurse practitioner".
+    portraitAlt: `Portrait of ${providerName}, nurse practitioner`,
   },
   approach: {
     heading: "If you don't need a treatment, she won't recommend it.",
