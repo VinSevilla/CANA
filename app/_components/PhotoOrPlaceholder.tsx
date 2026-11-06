@@ -66,6 +66,7 @@ export function PhotoOrPlaceholder({
         sizes={sizes}
         preload={preload}
         className={`object-cover ${imgClassName}`}
+        style={photo.position ? { objectPosition: photo.position } : undefined}
       />
     </div>
   );
