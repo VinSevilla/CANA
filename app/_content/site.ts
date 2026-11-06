@@ -24,7 +24,12 @@ export type NavLink = { label: string; href: string };
  * `placeholderLabel` when the file is missing at build time.
  * Photos are decorative (alt=""): nearby headings carry the meaning.
  */
-export type PhotoSource = { src: string; placeholderLabel: string };
+export type PhotoSource = {
+  src: string;
+  placeholderLabel: string;
+  /** Optional CSS object-position (focal point) wherever this photo is cropped. */
+  position?: string;
+};
 
 export type Service = {
   slug: string;
@@ -184,6 +189,9 @@ export const providerCredentials = "MSN, RN, FNP-C";
 export const providerPortrait: PhotoSource = {
   src: "/images/provider/portrait.jpg",
   placeholderLabel: "portrait of CANA's provider",
+  // The photo is very tall (about 1:2.15); a centered 4:5 crop cut across
+  // her eyes. Top-aligned, her whole head is in frame on both pages.
+  position: "50% 0%",
 };
 
 // Homepage provider band. The Cana origin story belongs on /about only.
