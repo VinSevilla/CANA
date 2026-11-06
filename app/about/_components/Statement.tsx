@@ -20,7 +20,7 @@ export function Statement() {
           >
             {approach.heading}
           </h2>
-          <p className="mt-8 max-w-[52ch] text-lg leading-relaxed lg:col-span-6 lg:col-start-5 lg:mt-0 lg:text-xl">
+          <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-pretty lg:col-span-6 lg:col-start-5 lg:mt-0 lg:text-xl">
             {approach.body}
           </p>
         </div>
