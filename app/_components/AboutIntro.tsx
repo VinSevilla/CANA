@@ -42,10 +42,11 @@ export function AboutIntro() {
               </div>
             </div>
             <figcaption className="mt-14 lg:mt-16">
-              <span className="block font-medium text-espresso">
-                <CopyText value={aboutIntro.provider} />
-              </span>
+              <span className="block font-medium text-espresso">{aboutIntro.providerLine}</span>
               <span className="mt-1 block">{aboutIntro.role}</span>
+              <span className="mt-1 block">
+                <CopyText value={aboutIntro.licensure} />
+              </span>
             </figcaption>
           </figure>
           <div className="lg:col-span-6 lg:col-start-7 lg:mt-24">

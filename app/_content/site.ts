@@ -172,23 +172,33 @@ export const hero = {
 export type TrustItem = { label: string };
 export const trustItems: readonly TrustItem[] = [];
 
-// Photo of CANA's actual provider (never stock). Shared by the homepage
-// provider band and the About page; placeholder until one is supplied.
+// CANA's provider, as confirmed by CANA (exactly as written). Single source
+// for every page; nothing else (licensure, board certification, education)
+// is inferred from these.
+export const providerName = "Ramona Sevilla Zepeda";
+export const providerCredentials = "MSN, RN, FNP-C";
+
+// Photo of CANA's actual provider (CANA's own photo, approved for
+// publication; the only tracked image). Shared by the homepage provider
+// section and the About page; a placeholder shows if the file is missing.
 export const providerPortrait: PhotoSource = {
   src: "/images/provider/portrait.jpg",
   placeholderLabel: "portrait of CANA's provider",
 };
 
 // Homepage provider band. The Cana origin story belongs on /about only.
-// heading/body: confirmed by CANA (verbatim). Provider details below are
-// still unconfirmed.
+// heading/body: confirmed by CANA (verbatim). Her name and credentials are
+// confirmed; her licensure is still unconfirmed.
 export const aboutIntro = {
   heading: "Care that feels personal.",
   body: "At CANA, you'll see the same provider at every visit. She gets to know you, your history, and what matters to you, so each appointment feels less like a checkup and more like catching up with someone who's genuinely in your corner.",
-  // Portrait caption: the existing name placeholder (reused, not a new one)
-  // and her role. "Nurse practitioner" is a confirmed fact; this caption
+  // Portrait caption. The former combined placeholder "provider name,
+  // credentials, and licensure" is split: confirmed name + credentials, and
+  // the remaining licensure placeholder (same wording as the About page).
+  // The role line "Nurse practitioner" is a confirmed fact; this caption
   // wording is new: PENDING CANA CONFIRMATION.
-  provider: confirm("provider name, credentials, and licensure"),
+  providerLine: `${providerName}, ${providerCredentials}`,
+  licensure: confirm("state(s) of licensure"),
   role: "Nurse practitioner",
   // Link label drafted in the prototype: PENDING CANA CONFIRMATION.
   link: { label: "Learn more about CANA", href: "/about" },
@@ -240,19 +250,19 @@ export const consultation = {
 // --- About page -----------------------------------------------------------
 // All wording below has been approved by CANA, including the stated
 // experience (10+ years practicing and prescribing as a nurse practitioner;
-// two years in aesthetic care) and her credential letters "MSN, RN, FNP-C"
-// (confirmed by CANA, exactly as written). Facts not yet supplied stay as
-// confirm() placeholders (her name, state licensure, board certification,
-// education, origin story); none are inferred from the credential letters.
-// Her portrait stays a photo placeholder until CANA supplies one.
+// two years in aesthetic care), her name and her credential letters
+// (providerName / providerCredentials, confirmed exactly as written), and
+// her portrait (CANA's own photo). Facts not yet supplied stay as confirm()
+// placeholders (state licensure, board certification, education, origin
+// story); none are inferred from her name, credentials, or photo.
 // No quotes attributed to her, testimonials, counts, outcomes, or awards.
 export const aboutPage = {
   metaDescription:
     "Meet CANA's provider, a nurse practitioner focused on honest, personal care.",
   hero: {
     heading: "Honest care from one provider who knows you.",
-    name: confirm("her name"),
-    credentials: "MSN, RN, FNP-C",
+    name: providerName,
+    credentials: providerCredentials,
     role: "Nurse practitioner · your provider at every visit",
     // Meaningful on this page (who she is), so not decorative. Add her name
     // once confirmed.
@@ -280,8 +290,8 @@ export const aboutPage = {
     body: "She has been practicing and prescribing as a nurse practitioner for more than 10 years. She has also worked in aesthetic care for two years, building on that medical foundation: the same attention to health history, safety, and informed decisions she brings to every visit.",
     credentialsHeading: "Credentials",
     credentials: [
-      { label: "Name", value: confirm("name") },
-      { label: "Credentials", value: "MSN, RN, FNP-C" },
+      { label: "Name", value: providerName },
+      { label: "Credentials", value: providerCredentials },
       { label: "State licensure", value: confirm("state(s) of licensure") },
       { label: "Board certification", value: confirm("board certification") },
       { label: "Education", value: confirm("education") },
@@ -291,7 +301,7 @@ export const aboutPage = {
     heading: "Why CANA",
     // Her own words go here; nothing of ours is placed inside the quote.
     story: confirm("the story of why she started CANA, in her own words"),
-    attribution: confirm("her name"),
+    attribution: providerName,
   },
 } as const;
 
