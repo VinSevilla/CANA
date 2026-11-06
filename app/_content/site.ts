@@ -240,10 +240,11 @@ export const consultation = {
 // --- About page -----------------------------------------------------------
 // All wording below has been approved by CANA, including the stated
 // experience (10+ years practicing and prescribing as a nurse practitioner;
-// two years in aesthetic care). Facts not yet supplied stay as confirm()
-// placeholders (her name, credential letters, licensure, board
-// certification, education, origin story); her portrait stays a photo
-// placeholder until CANA supplies one.
+// two years in aesthetic care) and her credential letters "MSN, RN, FNP-C"
+// (confirmed by CANA, exactly as written). Facts not yet supplied stay as
+// confirm() placeholders (her name, state licensure, board certification,
+// education, origin story); none are inferred from the credential letters.
+// Her portrait stays a photo placeholder until CANA supplies one.
 // No quotes attributed to her, testimonials, counts, outcomes, or awards.
 export const aboutPage = {
   metaDescription:
@@ -251,7 +252,7 @@ export const aboutPage = {
   hero: {
     heading: "Honest care from one provider who knows you.",
     name: confirm("her name"),
-    credentials: confirm("credential letters"),
+    credentials: "MSN, RN, FNP-C",
     role: "Nurse practitioner · your provider at every visit",
     // Meaningful on this page (who she is), so not decorative. Add her name
     // once confirmed.
@@ -280,7 +281,7 @@ export const aboutPage = {
     credentialsHeading: "Credentials",
     credentials: [
       { label: "Name", value: confirm("name") },
-      { label: "Credentials", value: confirm("credential letters") },
+      { label: "Credentials", value: "MSN, RN, FNP-C" },
       { label: "State licensure", value: confirm("state(s) of licensure") },
       { label: "Board certification", value: confirm("board certification") },
       { label: "Education", value: confirm("education") },
